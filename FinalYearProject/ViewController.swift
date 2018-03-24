@@ -25,7 +25,6 @@ class ViewController: UIViewController {
         sceneView.showsFPS = true
         sceneView.showsNodeCount = true
 //        sceneView.showsStatistics = true
-        // HAHAHA
         
         // Load the SKScene from 'Scene.sks'
 //        if let scene = Scene(named: "Scene") {

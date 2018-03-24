@@ -9,20 +9,22 @@
 import ARKit
 import SceneKit
 
-class SceneView: ARSKView {
+@objc protocol ItemAdding {
+    func addItem(at cameraTransform: matrix_float4x4) -> ARAnchor
+}
+
+class SceneView: ARSCNView {
+    @IBOutlet var itemAdderDelegate: ItemAdding?
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Create anchor using the camera's current position
-        guard let currentFrame = self.session.currentFrame else {
+        guard let currentFrame = self.session.currentFrame,
+            let delegate = self.itemAdderDelegate else {
             return
         }
-            
-        // Create a transform with a translation of 0.2 meters in front of the camera
-        var translation = matrix_identity_float4x4
-        translation.columns.3.z = -1.0
-        let transform = simd_mul(currentFrame.camera.transform, translation)
-        
-        // Add a new anchor to the session
-        let anchor = ARAnchor(transform: transform)
+
+        let cameraTransform = currentFrame.camera.transform
+        let anchor = delegate.addItem(at: cameraTransform)
         self.session.add(anchor: anchor)
     }
 }

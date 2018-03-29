@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item Adder Delegate-->
+        <!--Item Handler-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="FinalYearProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <connections>
                             <outlet property="delegate" destination="BV1-FR-VrT" id="YdN-Dx-0la"/>
-                            <outlet property="itemAdderDelegate" destination="BV1-FR-VrT" id="egD-DN-zgF"/>
+                            <outlet property="itemHandler" destination="BV1-FR-VrT" id="BiM-jH-OOT"/>
                         </connections>
                     </arscnView>
                     <connections>

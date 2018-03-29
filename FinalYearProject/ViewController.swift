@@ -64,7 +64,7 @@ extension ViewController: ARSCNViewDelegate {
     }
 }
 
-extension ViewController: ItemAdding {
+extension ViewController: ItemHandling {
     func addItem(at cameraTransform: matrix_float4x4) -> ARAnchor {
         // Create a transform with a translation of 1 meter(s) in front of the camera
         var translation = matrix_identity_float4x4
@@ -77,5 +77,10 @@ extension ViewController: ItemAdding {
         // Add a new anchor to the session
         let anchor = ARAnchor(transform: transform)
         return anchor
+    }
+    
+    func didSelect(item: SCNNode) {
+        // TODO: add highlighting to the item
+        item.removeFromParentNode()
     }
 }

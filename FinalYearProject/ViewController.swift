@@ -9,11 +9,12 @@
 import UIKit
 import SceneKit
 import ARKit
-import GameKit
 
 class ViewController: UIViewController {
     
     @IBOutlet var sceneView: SceneView!
+    
+    fileprivate var catalogue = Catalogue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,9 @@ class ViewController: UIViewController {
         if let scene = Scene(named: "Scene") {
             self.sceneView.scene = scene
         }
+        
+        // TODO: move to item selection
+        setCurrentItem(1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +53,12 @@ class ViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
+    fileprivate func setCurrentItem(_ itemIndex: Int) {
+        guard self.catalogue.items.count > itemIndex else {
+            return
+        }
+        self.catalogue.currentItem = self.catalogue.items[itemIndex]
+    }
 }
 
 extension ViewController: ARSCNViewDelegate {
@@ -57,10 +67,14 @@ extension ViewController: ARSCNViewDelegate {
 extension ViewController: ItemHandling {
     func addItem(at transform: matrix_float4x4,
                  in scene: SCNScene) {
-        let boxNode = CatalogueItem.box.nodeForItem()
+        guard let currentItem = self.catalogue.currentItem else {
+            return
+        }
+        
+        let node = currentItem.node()
         let worldTransform = SCNMatrix4(transform)
-        boxNode.setWorldTransform(worldTransform)
-        scene.rootNode.addChildNode(boxNode)
+        node.setWorldTransform(worldTransform)
+        scene.rootNode.addChildNode(node)
         print("Added item at \(worldTransform)")
     }
     

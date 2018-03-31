@@ -18,7 +18,7 @@ enum CatalogueItem {
     private static let kBoxSide: CGFloat = 0.5 //meters
     private static let kSphereRadius: CGFloat = 0.25 //meters
     
-    public func nodeForItem() -> SCNNode {
+    public func node() -> SCNNode {
         let node = SCNNode()
         switch self {
         case .box:
@@ -39,10 +39,12 @@ enum CatalogueItem {
     
 }
 
-class Catalogue {
+struct Catalogue {
     public private(set) var items: [CatalogueItem]
+    public var currentItem: CatalogueItem?
     
-    init () {
+    init() {
         items = [.box, .sphere]
+        currentItem = nil
     }
 }

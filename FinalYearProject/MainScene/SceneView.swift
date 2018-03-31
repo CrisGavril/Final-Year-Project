@@ -10,7 +10,7 @@ import ARKit
 import SceneKit
 
 @objc protocol ItemHandling {
-    func addItem(at cameraTransform: matrix_float4x4) -> ARAnchor
+    func addItem(at transform: matrix_float4x4, in scene: SCNScene)
     func didSelect(item: SCNNode)
 }
 
@@ -46,25 +46,12 @@ class SceneView: ARSCNView {
         let hitTestResults = self.hitTest(tapLocation)
         if let node = hitTestResults.first?.node {
             delegate.didSelect(item: node)
-        } else {
-            guard let currentFrame = self.session.currentFrame else {
-                return
-            }
-            let cameraTransform = currentFrame.camera.transform
-            let anchor = delegate.addItem(at: cameraTransform)
-            self.session.add(anchor: anchor)
+            return
+        }
+        
+        if let featurePoint = self.hitTest(tapLocation, types: .featurePoint).first {
+            delegate.addItem(at: featurePoint.worldTransform, in: self.scene)
+            return
         }
     }
-    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        // Create anchor using the camera's current position
-//        guard let currentFrame = self.session.currentFrame,
-//            let delegate = self.itemAdderDelegate else {
-//            return
-//        }
-//
-//        let cameraTransform = currentFrame.camera.transform
-//        let anchor = delegate.addItem(at: cameraTransform)
-//        self.session.add(anchor: anchor)
-//    }
 }

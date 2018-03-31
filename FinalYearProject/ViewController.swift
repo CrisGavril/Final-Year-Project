@@ -13,6 +13,8 @@ import GameKit
 
 class ViewController: UIViewController {
     
+    static let kBoxSide: CGFloat = 0.5 //meters
+    
     @IBOutlet var sceneView: SceneView!
     
     override func viewDidLoad() {
@@ -23,8 +25,6 @@ class ViewController: UIViewController {
         
         // Load the SCNScene from 'Scene.scn'
         if let scene = Scene(named: "Scene") {
-//            scene.scaleMode = .resizeFill
-//            scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             self.sceneView.scene = scene
         }
     }
@@ -54,29 +54,21 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ARSCNViewDelegate {
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        guard let scene = SCNScene(named: "Table.scn"),
-            let tableNode = scene.rootNode.childNode(withName: "GraniteTable", recursively: true) else {
-                return nil
-        }
-    
-        return tableNode
-    }
 }
 
 extension ViewController: ItemHandling {
-    func addItem(at cameraTransform: matrix_float4x4) -> ARAnchor {
-        // Create a transform with a translation of 1 meter(s) in front of the camera
-        var translation = matrix_identity_float4x4
-        translation = matrix_scale(0.007, translation)
-        translation.columns.3.x = -0.5
-        translation.columns.3.y = -0.5
-        translation.columns.3.z = -1.0
-        let transform = simd_mul(cameraTransform, translation)
-
-        // Add a new anchor to the session
-        let anchor = ARAnchor(transform: transform)
-        return anchor
+    func addItem(at transform: matrix_float4x4,
+                 in scene: SCNScene) {
+        let box = SCNBox(width: ViewController.kBoxSide,
+                         height: ViewController.kBoxSide,
+                         length: ViewController.kBoxSide,
+                         chamferRadius: 0)
+        let boxNode = SCNNode()
+        let worldTransform = SCNMatrix4(transform)
+        boxNode.geometry = box
+        boxNode.setWorldTransform(worldTransform)
+        scene.rootNode.addChildNode(boxNode)
+        print("Added item at \(worldTransform)")
     }
     
     func didSelect(item: SCNNode) {

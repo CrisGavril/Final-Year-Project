@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B2C2F3E206FBF6D009BCBEA /* Catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */; };
 		6B93711C2062B65200CDB829 /* Granit_kitchen_table.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6B9371182062B65100CDB829 /* Granit_kitchen_table.mtl */; };
 		6B93711D2062B65200CDB829 /* Granit kitchen table.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6B9371192062B65100CDB829 /* Granit kitchen table.obj */; };
 		6B93711E2062B65200CDB829 /* Granit_kitchen_table_bottom_bottom_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B93711A2062B65100CDB829 /* Granit_kitchen_table_bottom_bottom_8.png */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalogue.swift; sourceTree = "<group>"; };
 		6B9371182062B65100CDB829 /* Granit_kitchen_table.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Granit_kitchen_table.mtl; sourceTree = "<group>"; };
 		6B9371192062B65100CDB829 /* Granit kitchen table.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Granit kitchen table.obj"; sourceTree = "<group>"; };
 		6B93711A2062B65100CDB829 /* Granit_kitchen_table_bottom_bottom_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Granit_kitchen_table_bottom_bottom_8.png; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				6BFB798A2054510A00AB84E8 /* AppDelegate.swift */,
 				6BFB79902054510A00AB84E8 /* ViewController.swift */,
+				6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */,
 				6B9371222062BBF100CDB829 /* MainScene */,
 				6B9371172062B63000CDB829 /* Table */,
 				6BFB79922054510A00AB84E8 /* Main.storyboard */,
@@ -186,6 +189,7 @@
 				6B93712C2062C32900CDB829 /* SceneView.swift in Sources */,
 				6BFB79912054510A00AB84E8 /* ViewController.swift in Sources */,
 				6BFB798B2054510A00AB84E8 /* AppDelegate.swift in Sources */,
+				6B2C2F3E206FBF6D009BCBEA /* Catalogue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,8 +13,6 @@ import GameKit
 
 class ViewController: UIViewController {
     
-    static let kBoxSide: CGFloat = 0.5 //meters
-    
     @IBOutlet var sceneView: SceneView!
     
     override func viewDidLoad() {
@@ -59,13 +57,8 @@ extension ViewController: ARSCNViewDelegate {
 extension ViewController: ItemHandling {
     func addItem(at transform: matrix_float4x4,
                  in scene: SCNScene) {
-        let box = SCNBox(width: ViewController.kBoxSide,
-                         height: ViewController.kBoxSide,
-                         length: ViewController.kBoxSide,
-                         chamferRadius: 0)
-        let boxNode = SCNNode()
+        let boxNode = CatalogueItem.box.nodeForItem()
         let worldTransform = SCNMatrix4(transform)
-        boxNode.geometry = box
         boxNode.setWorldTransform(worldTransform)
         scene.rootNode.addChildNode(boxNode)
         print("Added item at \(worldTransform)")
@@ -76,3 +69,4 @@ extension ViewController: ItemHandling {
         item.removeFromParentNode()
     }
 }
+

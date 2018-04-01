@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,20 +14,43 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="FinalYearProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4Uu-JK-QkG" customClass="SceneView" customModule="FinalYearProject" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="rRV-XN-y6Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <connections>
-                            <outlet property="delegate" destination="BV1-FR-VrT" id="YdN-Dx-0la"/>
-                            <outlet property="itemHandler" destination="BV1-FR-VrT" id="BiM-jH-OOT"/>
-                        </connections>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4C-ub-LS6" customClass="SceneView" customModule="FinalYearProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="BV1-FR-VrT" id="uk5-jz-SxK"/>
+                                    <outlet property="itemHandler" destination="BV1-FR-VrT" id="lm5-G6-mgH"/>
+                                </connections>
+                            </arscnView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="luZ-co-ekF">
+                                <rect key="frame" x="310" y="616" width="51" height="31"/>
+                                <connections>
+                                    <action selector="showDebugWithSwitch:" destination="BV1-FR-VrT" eventType="valueChanged" id="Qqd-9a-T9d"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hDD-5K-mKy" firstAttribute="bottom" secondItem="luZ-co-ekF" secondAttribute="bottom" constant="20" id="PRq-yj-tGN"/>
+                            <constraint firstItem="hDD-5K-mKy" firstAttribute="top" secondItem="T4C-ub-LS6" secondAttribute="top" constant="20" id="Q2x-Ry-R8a"/>
+                            <constraint firstItem="hDD-5K-mKy" firstAttribute="bottom" secondItem="T4C-ub-LS6" secondAttribute="bottom" id="VWr-Wb-r2W"/>
+                            <constraint firstItem="hDD-5K-mKy" firstAttribute="trailing" secondItem="T4C-ub-LS6" secondAttribute="trailing" id="W0D-dt-w49"/>
+                            <constraint firstItem="hDD-5K-mKy" firstAttribute="trailing" secondItem="luZ-co-ekF" secondAttribute="trailing" constant="16" id="qSs-os-rBl"/>
+                            <constraint firstItem="T4C-ub-LS6" firstAttribute="leading" secondItem="hDD-5K-mKy" secondAttribute="leading" id="tMO-py-w2I"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hDD-5K-mKy"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="4Uu-JK-QkG" id="a6N-Yt-yyr"/>
+                        <outlet property="sceneView" destination="T4C-ub-LS6" id="mHC-ju-bFH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="116" y="117.39130434782609"/>
         </scene>
     </scenes>
 </document>

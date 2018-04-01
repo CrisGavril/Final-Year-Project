@@ -19,9 +19,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Show statistics such as fps and node count
-        sceneView.showsStatistics = true
-        
         // Load the SCNScene from 'Scene.scn'
         if let scene = Scene(named: "Scene") {
             self.sceneView.scene = scene
@@ -58,6 +55,19 @@ class ViewController: UIViewController {
             return
         }
         self.catalogue.currentItem = self.catalogue.items[itemIndex]
+    }
+    
+    @IBAction func showDebug(switch: UISwitch) {
+        if `switch`.isOn {
+            // Show statistics such as fps and node count
+            self.sceneView.showsStatistics = true
+            self.sceneView.debugOptions.insert(ARSCNDebugOptions.showFeaturePoints)
+            self.sceneView.debugOptions.insert(ARSCNDebugOptions.showWorldOrigin)
+        } else {
+            self.sceneView.showsStatistics = false
+            self.sceneView.debugOptions.remove(ARSCNDebugOptions.showFeaturePoints)
+            self.sceneView.debugOptions.remove(ARSCNDebugOptions.showWorldOrigin)
+        }
     }
 }
 

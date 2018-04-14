@@ -37,14 +37,37 @@ enum CatalogueItem {
         return node
     }
     
+    public var name: String {
+        get {
+            switch self {
+            case .box:
+                return "Box"
+            case .sphere:
+                return "Sphere"
+            case .table:
+                return "Table"
+            case .chair:
+                return "Chair"
+            }
+        }
+    }
 }
 
 struct Catalogue {
     public private(set) var items: [CatalogueItem]
-    public var currentItem: CatalogueItem?
+    public var currentItemIndex: Int?
+    public var currentItem: CatalogueItem? {
+        get {
+            guard let currentItemIndex = self.currentItemIndex,
+                currentItemIndex < self.items.count else {
+                return nil
+            }
+            return self.items[currentItemIndex]
+        }
+    }
     
     init() {
         items = [.box, .sphere]
-        currentItem = nil
+        currentItemIndex = nil
     }
 }

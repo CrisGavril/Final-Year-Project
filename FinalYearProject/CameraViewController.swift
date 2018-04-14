@@ -10,11 +10,11 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController {
+class CameraViewController: UIViewController {
     
     @IBOutlet var sceneView: SceneView!
     
-    fileprivate var catalogue = Catalogue()
+    public var catalogue = Catalogue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +23,6 @@ class ViewController: UIViewController {
         if let scene = Scene(named: "Scene") {
             self.sceneView.scene = scene
         }
-        
-        // TODO: move to item selection
-        setCurrentItem(1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +33,9 @@ class ViewController: UIViewController {
 
         // Run the view's session
         sceneView.session.run(configuration)
+        
+        //Hide navigation bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -43,6 +43,7 @@ class ViewController: UIViewController {
         
         // Pause the view's session
         sceneView.session.pause()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,11 +51,11 @@ class ViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
-    fileprivate func setCurrentItem(_ itemIndex: Int) {
-        guard self.catalogue.items.count > itemIndex else {
-            return
+    // MARK: - Storyboard
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCatalogue", let catalogueVC = segue.destination as? CatalogueViewController {
+            catalogueVC.catalogue = self.catalogue
         }
-        self.catalogue.currentItem = self.catalogue.items[itemIndex]
     }
     
     @IBAction func showDebug(switch: UISwitch) {
@@ -71,10 +72,10 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: ARSCNViewDelegate {
+extension CameraViewController: ARSCNViewDelegate {
 }
 
-extension ViewController: ItemHandling {
+extension CameraViewController: ItemHandling {
     func addItem(at transform: matrix_float4x4,
                  in scene: SCNScene) {
         guard let currentItem = self.catalogue.currentItem else {

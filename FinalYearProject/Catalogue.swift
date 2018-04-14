@@ -51,6 +51,19 @@ enum CatalogueItem {
             }
         }
     }
+    
+    public var image: UIImage? {
+        get {
+            switch self {
+            case .box:
+                return UIImage(named: "Box")
+            case .sphere:
+                return UIImage(named: "Sphere")
+            default:
+                return nil
+            }
+        }
+    }
 }
 
 struct Catalogue {
@@ -63,6 +76,14 @@ struct Catalogue {
                 return nil
             }
             return self.items[currentItemIndex]
+        }
+        
+        set {
+            guard let item = newValue else {
+                currentItemIndex = nil
+                return
+            }
+            self.currentItemIndex = self.items.index(of: item)
         }
     }
     

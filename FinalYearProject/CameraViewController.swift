@@ -58,6 +58,12 @@ class CameraViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToCamera(withSegue segue: UIStoryboardSegue) {
+        if segue.identifier == "showInAR", let itemDetailsVC = segue.source as? ItemDetailsViewController {
+            self.catalogue.currentItem = itemDetailsVC.item
+        }
+    }
+    
     @IBAction func showDebug(switch: UISwitch) {
         if `switch`.isOn {
             // Show statistics such as fps and node count

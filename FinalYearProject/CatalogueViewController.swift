@@ -18,16 +18,16 @@ class CatalogueViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: furnitureCellIdentifier)
-        self.navigationController?.delegate = self
     }
     
-}
-
-extension CatalogueViewController: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if let cameraVC = viewController as? CameraViewController {
-            cameraVC.catalogue = self.catalogue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showItemDetails",
+            let itemDetailsVC = segue.destination as? ItemDetailsViewController,
+            let item = sender as? CatalogueItem else {
+                return
         }
+        
+        itemDetailsVC.item = item
     }
 }
 
@@ -52,19 +52,16 @@ extension CatalogueViewController: UITableViewDelegate, UITableViewDataSource {
         let item = self.catalogue.items[indexPath.row]
         
         cell.textLabel?.text = item.name
-        if let currentItemIndex = self.catalogue.currentItemIndex,
-            currentItemIndex == indexPath.row {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+        cell.imageView?.image = item.image
+        cell.imageView?.contentMode = .scaleAspectFill
+        cell.imageView?.clipsToBounds = true
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard self.catalogue.items.count > indexPath.row else {
             return
         }
-        self.catalogue.currentItemIndex = indexPath.row
-        tableView.reloadData()
+        let item = self.catalogue.items[indexPath.row]
+        self.performSegue(withIdentifier: "showItemDetails", sender: item)
     }
 }

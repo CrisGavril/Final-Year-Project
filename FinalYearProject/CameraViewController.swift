@@ -13,8 +13,13 @@ import ARKit
 class CameraViewController: UIViewController {
     
     @IBOutlet var sceneView: SceneView!
+    @IBOutlet var itemInfoLabel: UILabel!
     
-    public var catalogue = Catalogue()
+    public var catalogue = Catalogue() {
+        didSet {
+            self.updateInfoLabel()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +28,7 @@ class CameraViewController: UIViewController {
         if let scene = Scene(named: "Scene") {
             self.sceneView.scene = scene
         }
+        self.updateInfoLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,17 +70,26 @@ class CameraViewController: UIViewController {
         }
     }
     
+    // Show statistics such as fps and node count
     @IBAction func showDebug(switch: UISwitch) {
+        self.sceneView.showsStatistics = `switch`.isOn
+        self.sceneView.isUserInteractionEnabled = !`switch`.isOn
         if `switch`.isOn {
-            // Show statistics such as fps and node count
-            self.sceneView.showsStatistics = true
             self.sceneView.debugOptions.insert(ARSCNDebugOptions.showFeaturePoints)
             self.sceneView.debugOptions.insert(ARSCNDebugOptions.showWorldOrigin)
         } else {
-            self.sceneView.showsStatistics = false
             self.sceneView.debugOptions.remove(ARSCNDebugOptions.showFeaturePoints)
             self.sceneView.debugOptions.remove(ARSCNDebugOptions.showWorldOrigin)
         }
+    }
+    
+    private func updateInfoLabel() {
+        guard let itemName = self.catalogue.currentItem?.name else {
+            self.itemInfoLabel.isHidden = true
+            return
+        }
+        self.itemInfoLabel.isHidden = false
+        self.itemInfoLabel.text = "Tap anywhere to place \(itemName)"
     }
 }
 
@@ -93,6 +108,7 @@ extension CameraViewController: ItemHandling {
         node.setWorldTransform(worldTransform)
         scene.rootNode.addChildNode(node)
         print("Added item at \(worldTransform)")
+        self.catalogue.currentItem = nil
     }
     
     func didSelect(item: SCNNode) {

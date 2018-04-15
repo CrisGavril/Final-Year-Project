@@ -39,10 +39,19 @@
                                     <segue destination="F2i-65-eI5" kind="show" identifier="showCatalogue" id="kSF-Oy-Ac4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUx-hB-AA6">
+                                <rect key="frame" x="166" y="333" width="42" height="21"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MUx-hB-AA6" firstAttribute="centerY" secondItem="hDD-5K-mKy" secondAttribute="centerY" id="7nE-an-d7x"/>
                             <constraint firstItem="luZ-co-ekF" firstAttribute="leading" secondItem="hDD-5K-mKy" secondAttribute="leading" constant="16" id="8PG-E5-KQG"/>
+                            <constraint firstItem="MUx-hB-AA6" firstAttribute="centerX" secondItem="hDD-5K-mKy" secondAttribute="centerX" id="FH2-9A-wQY"/>
                             <constraint firstItem="luZ-co-ekF" firstAttribute="top" secondItem="hDD-5K-mKy" secondAttribute="top" id="LPi-E0-Xdk"/>
                             <constraint firstItem="hDD-5K-mKy" firstAttribute="trailing" secondItem="X3G-io-FeR" secondAttribute="trailing" constant="16" id="POz-6B-yub"/>
                             <constraint firstItem="hDD-5K-mKy" firstAttribute="top" secondItem="T4C-ub-LS6" secondAttribute="top" constant="20" id="Q2x-Ry-R8a"/>
@@ -57,6 +66,7 @@
                     <navigationItem key="navigationItem" id="Exe-KQ-v46"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="itemInfoLabel" destination="MUx-hB-AA6" id="ocI-4m-gPF"/>
                         <outlet property="sceneView" destination="T4C-ub-LS6" id="mHC-ju-bFH"/>
                     </connections>
                 </viewController>

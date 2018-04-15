@@ -15,7 +15,7 @@ class CameraViewController: UIViewController {
     @IBOutlet var sceneView: SceneView!
     @IBOutlet var itemInfoLabel: UILabel!
     
-    public var catalogue = Catalogue() {
+    public var currentItem: CatalogueItem? = nil {
         didSet {
             self.updateInfoLabel()
         }
@@ -60,13 +60,13 @@ class CameraViewController: UIViewController {
     // MARK: - Storyboard
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCatalogue", let catalogueVC = segue.destination as? CatalogueViewController {
-            catalogueVC.catalogue = self.catalogue
+            catalogueVC.catalogue = Catalogue.sharedInstance
         }
     }
     
     @IBAction func unwindToCamera(withSegue segue: UIStoryboardSegue) {
         if segue.identifier == "showInAR", let itemDetailsVC = segue.source as? ItemDetailsViewController {
-            self.catalogue.currentItem = itemDetailsVC.item
+            self.currentItem = itemDetailsVC.item
         }
     }
     
@@ -84,7 +84,7 @@ class CameraViewController: UIViewController {
     }
     
     private func updateInfoLabel() {
-        guard let itemName = self.catalogue.currentItem?.name else {
+        guard let itemName = self.currentItem?.name else {
             self.itemInfoLabel.isHidden = true
             return
         }
@@ -99,7 +99,7 @@ extension CameraViewController: ARSCNViewDelegate {
 extension CameraViewController: ItemHandling {
     func addItem(at transform: matrix_float4x4,
                  in scene: SCNScene) {
-        guard let currentItem = self.catalogue.currentItem else {
+        guard let currentItem = self.currentItem else {
             return
         }
         
@@ -108,7 +108,7 @@ extension CameraViewController: ItemHandling {
         node.setWorldTransform(worldTransform)
         scene.rootNode.addChildNode(node)
         print("Added item at \(worldTransform)")
-        self.catalogue.currentItem = nil
+        self.currentItem = nil
     }
     
     func didSelect(item: SCNNode) {

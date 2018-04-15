@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +35,10 @@
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3G-io-FeR">
                                 <rect key="frame" x="289" y="617" width="70" height="30"/>
-                                <state key="normal" title="Catalogue"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Catalogue">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="F2i-65-eI5" kind="show" identifier="showCatalogue" id="kSF-Oy-Ac4"/>
                                 </connections>
@@ -90,29 +94,55 @@
             </objects>
             <point key="canvasLocation" x="-778" y="117"/>
         </scene>
-        <!--showCatalogue-->
+        <!--Catalogue-->
         <scene sceneID="DEB-us-Cmq">
             <objects>
-                <viewController title="showCatalogue" id="F2i-65-eI5" customClass="CatalogueViewController" customModule="FinalYearProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ljy-hw-iYD">
+                <viewController title="Catalogue" id="F2i-65-eI5" customClass="CatalogueViewController" customModule="FinalYearProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xg9-WL-3MN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nSa-Mq-X28">
+                                <rect key="frame" x="0.0" y="28" width="375" height="575"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="F2i-65-eI5" id="WEM-Rg-IrX"/>
+                                    <outlet property="delegate" destination="F2i-65-eI5" id="vqn-ti-yjV"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CAi-4P-yp8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
+                                <segments>
+                                    <segment title="All items"/>
+                                    <segment title="Favourites"/>
+                                </segments>
+                                <connections>
+                                    <action selector="filterChangedWithSegmentControl:" destination="F2i-65-eI5" eventType="valueChanged" id="hRI-9A-OGn"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="F2i-65-eI5" id="CTZ-L4-lCd"/>
-                            <outlet property="delegate" destination="F2i-65-eI5" id="8U0-lK-z4n"/>
-                        </connections>
-                    </tableView>
+                        <constraints>
+                            <constraint firstAttribute="topMargin" secondItem="CAi-4P-yp8" secondAttribute="top" id="Ggp-dy-ang"/>
+                            <constraint firstItem="nSa-Mq-X28" firstAttribute="top" secondItem="CAi-4P-yp8" secondAttribute="bottom" id="L5k-Ab-W6K"/>
+                            <constraint firstAttribute="trailing" secondItem="CAi-4P-yp8" secondAttribute="trailing" id="PnH-zY-Wwi"/>
+                            <constraint firstItem="CAi-4P-yp8" firstAttribute="leading" secondItem="Xg9-WL-3MN" secondAttribute="leading" id="PuD-ej-h21"/>
+                            <constraint firstAttribute="trailing" secondItem="nSa-Mq-X28" secondAttribute="trailing" id="Xis-eV-uve"/>
+                            <constraint firstItem="nSa-Mq-X28" firstAttribute="leading" secondItem="Xg9-WL-3MN" secondAttribute="leading" id="oFA-Yd-eOn"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="nSa-Mq-X28" secondAttribute="bottom" id="wbY-n1-XRd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lnq-H1-2tF"/>
+                    </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="tableView" destination="ljy-hw-iYD" id="kbJ-QZ-Gpu"/>
+                        <outlet property="tableView" destination="nSa-Mq-X28" id="HT7-SR-LEA"/>
                         <segue destination="AKN-4Z-iTw" kind="show" identifier="showItemDetails" id="1ny-a0-Pzv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wy-yn-WVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3lb-kQ-nMv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="958" y="117"/>
+            <point key="canvasLocation" x="957.60000000000002" y="116.49175412293854"/>
         </scene>
         <!--Item Details View Controller-->
         <scene sceneID="eVv-zT-P6a">
@@ -128,29 +158,30 @@
                                     <constraint firstAttribute="height" constant="221" id="z9e-pL-B7d"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTM-Dj-TL3">
-                                <rect key="frame" x="16" y="229" width="343" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnB-xV-xga">
-                                <rect key="frame" x="16" y="257" width="39" height="21"/>
+                                <rect key="frame" x="16" y="229" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jtp-Te-zoG">
-                                <rect key="frame" x="63" y="257.5" width="296" height="20.5"/>
+                                <rect key="frame" x="63" y="229" width="296" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaA-y4-GWF">
-                                <rect key="frame" x="151" y="286" width="73" height="30"/>
+                                <rect key="frame" x="151" y="258" width="73" height="30"/>
                                 <state key="normal" title="View in AR"/>
                                 <connections>
                                     <segue destination="3lb-kQ-nMv" kind="unwind" identifier="showInAR" unwindAction="unwindToCameraWithSegue:" id="xbZ-NB-k2F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKG-nz-Fc9">
+                                <rect key="frame" x="129" y="319" width="117" height="30"/>
+                                <state key="normal" title="Add to favourites"/>
+                                <connections>
+                                    <action selector="toggleFavourite" destination="AKN-4Z-iTw" eventType="touchUpInside" id="fBf-zS-6Ya"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -158,24 +189,23 @@
                         <constraints>
                             <constraint firstItem="FnB-xV-xga" firstAttribute="leading" secondItem="63v-tm-ubF" secondAttribute="leading" constant="16" id="0Ak-fB-Jes"/>
                             <constraint firstItem="Jtp-Te-zoG" firstAttribute="leading" secondItem="FnB-xV-xga" secondAttribute="trailing" constant="8" id="58c-39-1sY"/>
-                            <constraint firstItem="LTM-Dj-TL3" firstAttribute="top" secondItem="DQQ-NF-mk0" secondAttribute="bottom" constant="8" id="6Fx-OF-nn7"/>
+                            <constraint firstItem="WKG-nz-Fc9" firstAttribute="top" secondItem="XaA-y4-GWF" secondAttribute="bottom" constant="31" id="5qo-vv-kZc"/>
                             <constraint firstItem="XaA-y4-GWF" firstAttribute="top" secondItem="Jtp-Te-zoG" secondAttribute="bottom" constant="8" id="GiP-5I-DKb"/>
                             <constraint firstItem="Jtp-Te-zoG" firstAttribute="baseline" secondItem="FnB-xV-xga" secondAttribute="baseline" id="J3L-fE-aU5"/>
                             <constraint firstItem="DQQ-NF-mk0" firstAttribute="top" secondItem="63v-tm-ubF" secondAttribute="top" id="Kud-AB-3TG"/>
                             <constraint firstAttribute="trailing" secondItem="DQQ-NF-mk0" secondAttribute="trailing" id="L1f-WD-6Ni"/>
-                            <constraint firstItem="LTM-Dj-TL3" firstAttribute="leading" secondItem="63v-tm-ubF" secondAttribute="leading" constant="16" id="Mzb-3Q-bQj"/>
                             <constraint firstItem="DQQ-NF-mk0" firstAttribute="leading" secondItem="m53-Tg-1sz" secondAttribute="leading" id="X0Q-8h-KJo"/>
                             <constraint firstItem="63v-tm-ubF" firstAttribute="trailing" secondItem="Jtp-Te-zoG" secondAttribute="trailing" constant="16" id="eGC-Q3-Far"/>
                             <constraint firstItem="XaA-y4-GWF" firstAttribute="centerX" secondItem="63v-tm-ubF" secondAttribute="centerX" id="h8g-od-t9b"/>
-                            <constraint firstItem="FnB-xV-xga" firstAttribute="top" secondItem="LTM-Dj-TL3" secondAttribute="bottom" constant="7.5" id="igf-Do-awx"/>
-                            <constraint firstItem="63v-tm-ubF" firstAttribute="trailing" secondItem="LTM-Dj-TL3" secondAttribute="trailing" constant="16" id="mE3-B6-obh"/>
+                            <constraint firstItem="WKG-nz-Fc9" firstAttribute="centerX" secondItem="63v-tm-ubF" secondAttribute="centerX" id="iBk-me-oOE"/>
+                            <constraint firstItem="FnB-xV-xga" firstAttribute="top" secondItem="DQQ-NF-mk0" secondAttribute="bottom" constant="8" id="rgK-SU-BOS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="63v-tm-ubF"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="DQQ-NF-mk0" id="uO3-Ju-syH"/>
-                        <outlet property="nameLabel" destination="LTM-Dj-TL3" id="QYj-t0-s7E"/>
                         <outlet property="priceLabel" destination="Jtp-Te-zoG" id="jZd-bQ-yHr"/>
+                        <outlet property="toggleFavouriteButton" destination="WKG-nz-Fc9" id="oHO-DT-nvA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXY-Fh-Kux" userLabel="First Responder" sceneMemberID="firstResponder"/>

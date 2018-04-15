@@ -9,18 +9,23 @@
 import Foundation
 import SceneKit
 
-enum CatalogueItem {
+enum ItemType {
     case box
     case sphere
     case table
     case chair
-    
+}
+
+struct CatalogueItem: Equatable {
     private static let kBoxSide: CGFloat = 0.5 //meters
     private static let kSphereRadius: CGFloat = 0.25 //meters
     
+    let type: ItemType
+    var isFavourite: Bool
+    
     public func node() -> SCNNode {
         let node = SCNNode()
-        switch self {
+        switch self.type {
         case .box:
             let box = SCNBox(width: CatalogueItem.kBoxSide,
                              height: CatalogueItem.kBoxSide,
@@ -39,7 +44,7 @@ enum CatalogueItem {
     
     public var name: String {
         get {
-            switch self {
+            switch self.type {
             case .box:
                 return "Box"
             case .sphere:
@@ -54,7 +59,7 @@ enum CatalogueItem {
     
     public var image: UIImage? {
         get {
-            switch self {
+            switch self.type {
             case .box:
                 return UIImage(named: "Box")
             case .sphere:
@@ -67,28 +72,27 @@ enum CatalogueItem {
 }
 
 struct Catalogue {
+    static let catalogueUpdateNotification: NSNotification.Name = NSNotification.Name(rawValue: "CatalogueDidUpdate")
+    
     public private(set) var items: [CatalogueItem]
-    public var currentItemIndex: Int?
-    public var currentItem: CatalogueItem? {
-        get {
-            guard let currentItemIndex = self.currentItemIndex,
-                currentItemIndex < self.items.count else {
-                return nil
-            }
-            return self.items[currentItemIndex]
-        }
-        
-        set {
-            guard let item = newValue else {
-                currentItemIndex = nil
-                return
-            }
-            self.currentItemIndex = self.items.index(of: item)
-        }
+    
+    private init() {
+        items = [CatalogueItem(type: .box, isFavourite: false),
+                 CatalogueItem(type: .sphere, isFavourite: false)]
     }
     
-    init() {
-        items = [.box, .sphere]
-        currentItemIndex = nil
+    public static var sharedInstance: Catalogue = {
+        return Catalogue()
+    }()
+    
+    public mutating func updateItem(_ item: CatalogueItem, at index: Int) {
+        guard index < self.items.count else {
+            return
+        }
+        self.items[index] = item
+        
+        NotificationCenter.default.post(name: Catalogue.catalogueUpdateNotification,
+                                        object: nil,
+                                        userInfo: nil)
     }
 }

@@ -58,7 +58,7 @@ class CatalogueViewController: UIViewController {
         }
         
         self.observer = NotificationCenter.default
-            .addObserver(forName: Catalogue.catalogueUpdateNotification,
+            .addObserver(forName: Catalogue.updateNotification,
                          object: nil,
                          queue: nil,
                          using: block)

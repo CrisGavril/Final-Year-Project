@@ -9,20 +9,47 @@
 import Foundation
 import SceneKit
 
-enum ItemType {
+enum ItemType: String, Codable {
     case box
     case sphere
     case table
     case chair
+    
+    public var name: String {
+        get {
+            switch self {
+            case .box:
+                return "Box"
+            case .sphere:
+                return "Sphere"
+            case .table:
+                return "Table"
+            case .chair:
+                return "Chair"
+            }
+        }
+    }
 }
 
-struct CatalogueItem: Equatable {
+struct CatalogueItem: Equatable, Codable {
     private static let kBoxSide: CGFloat = 0.5 //meters
     private static let kSphereRadius: CGFloat = 0.25 //meters
     
     let type: ItemType
     var isFavourite: Bool
+    public let name: String
+    private let imageName: String?
     
+    init(type: ItemType,
+         name: String? = nil,
+         isFavourite: Bool = false,
+         imageName: String? = nil) {
+        self.type = type
+        self.name = name ?? type.name
+        self.isFavourite = isFavourite
+        self.imageName = imageName ?? type.name
+    }
+
     public func node() -> SCNNode {
         let node = SCNNode()
         switch self.type {
@@ -42,47 +69,37 @@ struct CatalogueItem: Equatable {
         return node
     }
     
-    public var name: String {
-        get {
-            switch self.type {
-            case .box:
-                return "Box"
-            case .sphere:
-                return "Sphere"
-            case .table:
-                return "Table"
-            case .chair:
-                return "Chair"
-            }
-        }
-    }
-    
     public var image: UIImage? {
         get {
-            switch self.type {
-            case .box:
-                return UIImage(named: "Box")
-            case .sphere:
-                return UIImage(named: "Sphere")
-            default:
-                return nil
+            guard let name = self.imageName else {
+                return nil;
             }
+            return UIImage(named: name)
         }
     }
 }
 
-struct Catalogue {
-    static let catalogueUpdateNotification: NSNotification.Name = NSNotification.Name(rawValue: "CatalogueDidUpdate")
+struct Catalogue: Codable {
+    static let updateNotification: NSNotification.Name = NSNotification.Name(rawValue: "CatalogueDidUpdate")
+    
+    private static let userDefaultsKey = "catalogueUserDefaultsKey"
     
     public private(set) var items: [CatalogueItem]
     
-    private init() {
-        items = [CatalogueItem(type: .box, isFavourite: false),
-                 CatalogueItem(type: .sphere, isFavourite: false)]
+    private init(items: [CatalogueItem]) {
+        self.items = items
     }
     
     public static var sharedInstance: Catalogue = {
-        return Catalogue()
+        if let data = UserDefaults.standard.data(forKey: Catalogue.userDefaultsKey) {
+            let decoded = try! PropertyListDecoder().decode(Catalogue.self, from: data)
+            return decoded
+        } else {
+            return Catalogue(items: [
+                CatalogueItem(type: .box),
+                CatalogueItem(type: .sphere)
+                ])
+        }
     }()
     
     public mutating func updateItem(_ item: CatalogueItem, at index: Int) {
@@ -91,7 +108,12 @@ struct Catalogue {
         }
         self.items[index] = item
         
-        NotificationCenter.default.post(name: Catalogue.catalogueUpdateNotification,
+        let data = try! PropertyListEncoder().encode(self)
+        
+        UserDefaults.standard.set(data,
+                                  forKey: Catalogue.userDefaultsKey)
+        
+        NotificationCenter.default.post(name: Catalogue.updateNotification,
                                         object: nil,
                                         userInfo: nil)
     }

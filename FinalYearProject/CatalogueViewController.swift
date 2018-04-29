@@ -17,16 +17,21 @@ enum ItemFilter {
 class CatalogueViewController: UIViewController {
     let furnitureCellIdentifier = "FurnitureCell"
     @IBOutlet var tableView: UITableView?
+    @IBOutlet var searchBar: UISearchBar?
     
     public var catalogue: Catalogue = Catalogue.sharedInstance {
         didSet {
-            self.filteredItems = self.applyFilter(self.filter, to: self.catalogue.items)
+            self.filteredItems = self.applyFilter(self.filter,
+                                                  searchTerm: self.searchBar?.text,
+                                                  to: self.catalogue.items)
         }
     }
     
     fileprivate var filter: ItemFilter = .all {
         didSet {
-            self.filteredItems = self.applyFilter(self.filter, to: self.catalogue.items)
+            self.filteredItems = self.applyFilter(self.filter,
+                                                  searchTerm: self.searchBar?.text,
+                                                  to: self.catalogue.items)
         }
     }
     
@@ -36,12 +41,25 @@ class CatalogueViewController: UIViewController {
         }
     }
     
-    func applyFilter(_ filter: ItemFilter, to allItems: [CatalogueItem]) -> [CatalogueItem] {
+    func applyFilter(_ filter: ItemFilter,
+                     searchTerm: String?,
+                     to allItems: [CatalogueItem]) -> [CatalogueItem] {
+        
+        let items: [CatalogueItem]
         switch filter {
         case .all:
-            return allItems
+            items = allItems
         case .favourites:
-            return allItems.filter{ $0.isFavourite }
+            items = allItems.filter{ $0.isFavourite }
+        }
+        
+        guard let searchTerm = searchTerm?.uppercased(), searchTerm.count > 0 else {
+            return items
+        }
+        
+        return items.filter { item in
+            return item.name.uppercased().contains(searchTerm) ||
+                item.type.name.uppercased().contains(searchTerm)
         }
     }
     
@@ -126,5 +144,31 @@ extension CatalogueViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let item = self.filteredItems[indexPath.row]
         self.performSegue(withIdentifier: "showItemDetails", sender: item)
+    }
+}
+
+extension CatalogueViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filteredItems = self.applyFilter(self.filter,
+                                              searchTerm: searchText,
+                                              to: self.catalogue.items)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension CatalogueViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.searchBar?.resignFirstResponder()
     }
 }

@@ -44,21 +44,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUx-hB-AA6">
-                                <rect key="frame" x="166" y="333" width="42" height="21"/>
+                                <rect key="frame" x="166.5" y="333" width="42" height="21"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MUx-hB-AA6" firstAttribute="centerY" secondItem="hDD-5K-mKy" secondAttribute="centerY" id="7nE-an-d7x"/>
                             <constraint firstItem="luZ-co-ekF" firstAttribute="leading" secondItem="hDD-5K-mKy" secondAttribute="leading" constant="16" id="8PG-E5-KQG"/>
                             <constraint firstItem="MUx-hB-AA6" firstAttribute="centerX" secondItem="hDD-5K-mKy" secondAttribute="centerX" id="FH2-9A-wQY"/>
                             <constraint firstItem="luZ-co-ekF" firstAttribute="top" secondItem="hDD-5K-mKy" secondAttribute="top" id="LPi-E0-Xdk"/>
                             <constraint firstItem="hDD-5K-mKy" firstAttribute="trailing" secondItem="X3G-io-FeR" secondAttribute="trailing" constant="16" id="POz-6B-yub"/>
-                            <constraint firstItem="hDD-5K-mKy" firstAttribute="top" secondItem="T4C-ub-LS6" secondAttribute="top" constant="20" id="Q2x-Ry-R8a"/>
+                            <constraint firstAttribute="top" secondItem="T4C-ub-LS6" secondAttribute="top" id="Q2x-Ry-R8a"/>
                             <constraint firstItem="hDD-5K-mKy" firstAttribute="bottom" secondItem="T4C-ub-LS6" secondAttribute="bottom" id="VWr-Wb-r2W"/>
                             <constraint firstItem="hDD-5K-mKy" firstAttribute="trailing" secondItem="T4C-ub-LS6" secondAttribute="trailing" id="W0D-dt-w49"/>
                             <constraint firstItem="hDD-5K-mKy" firstAttribute="bottom" secondItem="X3G-io-FeR" secondAttribute="bottom" constant="20" id="khf-kj-yfm"/>
@@ -102,34 +102,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nSa-Mq-X28">
-                                <rect key="frame" x="0.0" y="92" width="375" height="575"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="F2i-65-eI5" id="WEM-Rg-IrX"/>
-                                    <outlet property="delegate" destination="F2i-65-eI5" id="vqn-ti-yjV"/>
-                                </connections>
-                            </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CAi-4P-yp8">
-                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
-                                <segments>
-                                    <segment title="All items"/>
-                                    <segment title="Favourites"/>
-                                </segments>
-                                <connections>
-                                    <action selector="filterChangedWithSegmentControl:" destination="F2i-65-eI5" eventType="valueChanged" id="hRI-9A-OGn"/>
-                                </connections>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qYn-W3-oUH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CAi-4P-yp8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
+                                        <segments>
+                                            <segment title="All items"/>
+                                            <segment title="Favourites"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="filterChangedWithSegmentControl:" destination="F2i-65-eI5" eventType="valueChanged" id="hRI-9A-OGn"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ife-5y-sWC">
+                                        <rect key="frame" x="0.0" y="29" width="375" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="F2i-65-eI5" id="QcI-8w-vqC"/>
+                                        </connections>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nSa-Mq-X28">
+                                        <rect key="frame" x="0.0" y="86" width="375" height="517"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="F2i-65-eI5" id="WEM-Rg-IrX"/>
+                                            <outlet property="delegate" destination="F2i-65-eI5" id="vqn-ti-yjV"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="topMargin" secondItem="CAi-4P-yp8" secondAttribute="top" id="Ggp-dy-ang"/>
-                            <constraint firstItem="nSa-Mq-X28" firstAttribute="top" secondItem="CAi-4P-yp8" secondAttribute="bottom" id="L5k-Ab-W6K"/>
-                            <constraint firstAttribute="trailing" secondItem="CAi-4P-yp8" secondAttribute="trailing" id="PnH-zY-Wwi"/>
-                            <constraint firstItem="CAi-4P-yp8" firstAttribute="leading" secondItem="Xg9-WL-3MN" secondAttribute="leading" id="PuD-ej-h21"/>
-                            <constraint firstAttribute="trailing" secondItem="nSa-Mq-X28" secondAttribute="trailing" id="Xis-eV-uve"/>
-                            <constraint firstItem="nSa-Mq-X28" firstAttribute="leading" secondItem="Xg9-WL-3MN" secondAttribute="leading" id="oFA-Yd-eOn"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="nSa-Mq-X28" secondAttribute="bottom" id="wbY-n1-XRd"/>
+                            <constraint firstItem="qYn-W3-oUH" firstAttribute="top" secondItem="lnq-H1-2tF" secondAttribute="top" id="Ccx-TS-LjN"/>
+                            <constraint firstAttribute="trailing" secondItem="qYn-W3-oUH" secondAttribute="trailing" id="QGD-b3-Egt"/>
+                            <constraint firstItem="qYn-W3-oUH" firstAttribute="leading" secondItem="Xg9-WL-3MN" secondAttribute="leading" id="ZXb-oW-Qom"/>
+                            <constraint firstAttribute="bottom" secondItem="qYn-W3-oUH" secondAttribute="bottom" id="tU7-2T-yeM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lnq-H1-2tF"/>
                     </view>
@@ -144,6 +153,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="Ife-5y-sWC" id="9Y3-jC-0AP"/>
                         <outlet property="tableView" destination="nSa-Mq-X28" id="HT7-SR-LEA"/>
                         <segue destination="AKN-4Z-iTw" kind="show" identifier="showItemDetails" id="1ny-a0-Pzv"/>
                     </connections>

@@ -39,8 +39,12 @@ class SceneView: ARSCNView {
         
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(viewPanned(with:)))
         self.addGestureRecognizer(panRecognizer)
+        
+        let rotationRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(viewRotated(with:)))
+        self.addGestureRecognizer(rotationRecognizer)
+        
     }
-    
+
     @objc func viewTapped(with tapRecognizer: UITapGestureRecognizer) {
         guard let delegate = self.itemHandler else {
             return
@@ -84,13 +88,31 @@ class SceneView: ARSCNView {
                 break
             }
             nodeBeingPanned.addOrUpdateAnchor(in: self.session)
-            self.nodeBeingPanned = nil
-            self.currentPanPosition = nil
+            fallthrough
         case .cancelled,
              .failed,
              .possible:
             self.nodeBeingPanned = nil
             self.currentPanPosition = nil
+        }
+    }
+    
+    private var nodeBeingRotated: SCNNode? = nil
+    @objc func viewRotated(with rotationRecognizer: UIRotationGestureRecognizer) {
+        switch rotationRecognizer.state {
+        case .began:
+            self.nodeBeingRotated = self.findNode(for: rotationRecognizer)
+        case .changed:
+            guard let node = self.nodeBeingRotated else {
+                break
+            }
+            self.rotate(node, at: Float(rotationRecognizer.rotation))
+            rotationRecognizer.rotation = 0.0
+        case .ended,
+             .cancelled,
+             .failed,
+             .possible:
+            self.nodeBeingRotated = nil
         }
     }
     
@@ -117,6 +139,12 @@ class SceneView: ARSCNView {
             return
         }
         node.simdPosition = worldTransformTranslation
+    }
+    
+    private func rotate(_ node: SCNNode, at angle: Float) {
+        //let node = node.childNodes.first ?? node
+        // Works when object viewed from above, if viewed from below angle needs to be added
+        node.eulerAngles.y -= angle
     }
     
     private func hitTest(for node: SCNNode, position: CGPoint, types: ARHitTestResult.ResultType) -> ARHitTestResult? {

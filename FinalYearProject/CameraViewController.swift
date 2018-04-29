@@ -14,6 +14,26 @@ class CameraViewController: UIViewController {
     
     @IBOutlet var sceneView: SceneView!
     @IBOutlet var itemInfoLabel: UILabel!
+    @IBOutlet var catalogueButton: UIButton!
+    @IBOutlet var screenshotButton: UIButton!
+    @IBOutlet var debugSwitch: UISwitch!
+    
+    @IBAction func takeScreenshot() {
+        let viewsAndHiddenState: [(UIView,Bool)] = [
+            self.itemInfoLabel,
+            self.catalogueButton,
+            self.screenshotButton,
+            self.debugSwitch,
+            ].map { ($0, $0.isHidden) }
+        
+        viewsAndHiddenState.forEach { $0.0.isHidden = true }
+        
+        if let image = self.view.getScreenshot() {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        }
+        
+        viewsAndHiddenState.forEach { $0.0.isHidden = $0.1 }
+    }
     
     private var shownItemNodes = Set<ItemNode>()
     

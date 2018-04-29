@@ -50,6 +50,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COX-4g-Hmc">
+                                <rect key="frame" x="172" y="617" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="📷">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="takeScreenshot" destination="BV1-FR-VrT" eventType="touchUpInside" id="sgD-P5-YGH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -61,7 +71,9 @@
                             <constraint firstAttribute="top" secondItem="T4C-ub-LS6" secondAttribute="top" id="Q2x-Ry-R8a"/>
                             <constraint firstItem="hDD-5K-mKy" firstAttribute="bottom" secondItem="T4C-ub-LS6" secondAttribute="bottom" id="VWr-Wb-r2W"/>
                             <constraint firstItem="hDD-5K-mKy" firstAttribute="trailing" secondItem="T4C-ub-LS6" secondAttribute="trailing" id="W0D-dt-w49"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="COX-4g-Hmc" secondAttribute="bottom" constant="20" id="blu-ZP-V7x"/>
                             <constraint firstItem="hDD-5K-mKy" firstAttribute="bottom" secondItem="X3G-io-FeR" secondAttribute="bottom" constant="20" id="khf-kj-yfm"/>
+                            <constraint firstItem="COX-4g-Hmc" firstAttribute="centerX" secondItem="hDD-5K-mKy" secondAttribute="centerX" id="nTj-aK-Nvm"/>
                             <constraint firstItem="X3G-io-FeR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rRV-XN-y6Z" secondAttribute="leading" constant="20" symbolic="YES" id="sUo-Ri-jHf"/>
                             <constraint firstItem="T4C-ub-LS6" firstAttribute="leading" secondItem="hDD-5K-mKy" secondAttribute="leading" id="tMO-py-w2I"/>
                         </constraints>
@@ -70,8 +82,11 @@
                     <navigationItem key="navigationItem" id="Exe-KQ-v46"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="catalogueButton" destination="X3G-io-FeR" id="xTi-Gq-81T"/>
+                        <outlet property="debugSwitch" destination="luZ-co-ekF" id="6f3-kI-1YE"/>
                         <outlet property="itemInfoLabel" destination="MUx-hB-AA6" id="ocI-4m-gPF"/>
                         <outlet property="sceneView" destination="T4C-ub-LS6" id="mHC-ju-bFH"/>
+                        <outlet property="screenshotButton" destination="COX-4g-Hmc" id="cIb-gt-bOG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

@@ -15,6 +15,8 @@ class CameraViewController: UIViewController {
     @IBOutlet var sceneView: SceneView!
     @IBOutlet var itemInfoLabel: UILabel!
     
+    private var shownItemNodes = Set<ItemNode>()
+    
     public var currentItem: CatalogueItem? = nil {
         didSet {
             self.updateInfoLabel()
@@ -73,7 +75,6 @@ class CameraViewController: UIViewController {
     // Show statistics such as fps and node count
     @IBAction func showDebug(switch: UISwitch) {
         self.sceneView.showsStatistics = `switch`.isOn
-        self.sceneView.isUserInteractionEnabled = !`switch`.isOn
         if `switch`.isOn {
             self.sceneView.debugOptions.insert(ARSCNDebugOptions.showFeaturePoints)
             self.sceneView.debugOptions.insert(ARSCNDebugOptions.showWorldOrigin)
@@ -94,26 +95,55 @@ class CameraViewController: UIViewController {
 }
 
 extension CameraViewController: ARSCNViewDelegate {
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        for itemNode in self.shownItemNodes {
+            guard itemNode.anchor == anchor else {
+                continue
+            }
+            itemNode.simdPosition = anchor.transform.translation
+        }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        DispatchQueue.main.async {
+            self.sceneView.updateNodes()
+        }
+    }
 }
 
 extension CameraViewController: ItemHandling {
     func addItem(at transform: matrix_float4x4,
-                 in scene: SCNScene) {
+                 in sceneView: SceneView) {
         guard let currentItem = self.currentItem else {
             return
         }
         
-        let node = currentItem.node()
+        let node = ItemNode(type: currentItem.type)
         let worldTransform = SCNMatrix4(transform)
         node.setWorldTransform(worldTransform)
-        scene.rootNode.addChildNode(node)
+        self.shownItemNodes.insert(node)
+        sceneView.scene.rootNode.addChildNode(node)
+        node.addOrUpdateAnchor(in: sceneView.session)
         print("Added item at \(worldTransform)")
         self.currentItem = nil
     }
     
-    func didSelect(item: SCNNode) {
+    func didSelect(node: SCNNode) {
+        guard let itemNode = node as? ItemNode else {
+            return
+        }
+        
         // TODO: add highlighting to the item
-        item.removeFromParentNode()
+        itemNode.removeFromParentNode()
+        self.shownItemNodes.remove(itemNode)
+    }
+    
+    func hasItem(for node: SCNNode) -> Bool {
+        guard let itemNode = node as? ItemNode else {
+            return false
+        }
+        
+        return self.shownItemNodes.contains(itemNode)
     }
 }
 

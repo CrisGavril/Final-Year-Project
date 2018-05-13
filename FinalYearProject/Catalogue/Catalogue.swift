@@ -12,6 +12,8 @@ struct Catalogue: Codable {
     static let updateNotification: NSNotification.Name = NSNotification.Name(rawValue: "CatalogueDidUpdate")
     
     private static let userDefaultsKey = "catalogueUserDefaultsKey"
+    private static let catalogueVersionKey = "catalogueVersionKey"
+    private static let currentCatalogueVersion = 2
     
     public private(set) var items: [CatalogueItem]
     
@@ -19,15 +21,49 @@ struct Catalogue: Codable {
         self.items = items
     }
     
+    private static func generateItemName(forIndex index: Int) -> String {
+        let namePrefix: String
+        // These are random product names from Ikea.
+        // We need something that will be different from the item type to test the search functionality.
+        switch index % 3 {
+        case 0:
+            namePrefix = "Henriksdal"
+        case 1:
+            namePrefix = "Ekedalen"
+        default:
+            namePrefix = "Odger"
+        }
+        // We use this number formatter to generate spelled-out numbers that
+        // should generate nice names for our test products
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .spellOut
+        let nameSuffix = numberFormatter.string(from: NSNumber(value: index)) ?? ""
+        return "\(namePrefix) \(nameSuffix)"
+    }
+    
+    private static func generateItem(forIndex index: Int) -> CatalogueItem {
+        // App currently only supports boxes and sphere
+        let type = (index % 2 == 0) ? ItemType.box : ItemType.sphere
+        return CatalogueItem(type: type, name: Catalogue.generateItemName(forIndex: index))
+    }
+    
+    
+    private static func shouldUsePersistedCatalogue() -> Bool {
+        // The currentCatalogueVersion should be updated every time the Catalogue data structure changes
+        return UserDefaults.standard.integer(forKey: Catalogue.catalogueVersionKey) == Catalogue.currentCatalogueVersion
+    }
+    
     public static var sharedInstance: Catalogue = {
-        if let data = UserDefaults.standard.data(forKey: Catalogue.userDefaultsKey) {
+        if Catalogue.shouldUsePersistedCatalogue(),
+            let data = UserDefaults.standard.data(forKey: Catalogue.userDefaultsKey) {
             let decoded = try! PropertyListDecoder().decode(Catalogue.self, from: data)
             return decoded
         } else {
-            return Catalogue(items: [
-                CatalogueItem(type: .box),
-                CatalogueItem(type: .sphere)
-                ])
+            // We should have data migration here in future versions
+            // Presently the "data migration" consists of
+            // discarding the incompatible data and generate a new version of the Catalogue
+            let items:[CatalogueItem] = (1...100).map { Catalogue.generateItem(forIndex: $0) }
+            return Catalogue(items: items)
         }
     }()
     
@@ -41,7 +77,8 @@ struct Catalogue: Codable {
         
         UserDefaults.standard.set(data,
                                   forKey: Catalogue.userDefaultsKey)
-        
+        UserDefaults.standard.set(Catalogue.currentCatalogueVersion,
+                                  forKey: Catalogue.catalogueVersionKey)
         NotificationCenter.default.post(name: Catalogue.updateNotification,
                                         object: nil,
                                         userInfo: nil)

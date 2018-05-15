@@ -100,6 +100,7 @@
                     <connections>
                         <outlet property="catalogueButton" destination="X3G-io-FeR" id="xTi-Gq-81T"/>
                         <outlet property="debugSwitch" destination="luZ-co-ekF" id="6f3-kI-1YE"/>
+                        <outlet property="deleteButton" destination="mUd-dm-6D8" id="9oU-Lk-WPd"/>
                         <outlet property="itemInfoLabel" destination="MUx-hB-AA6" id="ocI-4m-gPF"/>
                         <outlet property="sceneView" destination="T4C-ub-LS6" id="mHC-ju-bFH"/>
                         <outlet property="screenshotButton" destination="COX-4g-Hmc" id="cIb-gt-bOG"/>

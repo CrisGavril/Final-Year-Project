@@ -16,6 +16,7 @@ class CameraViewController: UIViewController {
     @IBOutlet var itemInfoLabel: UILabel!
     @IBOutlet var catalogueButton: UIButton!
     @IBOutlet var screenshotButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
     @IBOutlet var debugSwitch: UISwitch!
     
     @IBAction func takeScreenshot() {
@@ -23,6 +24,7 @@ class CameraViewController: UIViewController {
             self.itemInfoLabel,
             self.catalogueButton,
             self.screenshotButton,
+            self.deleteButton,
             self.debugSwitch,
             ].map { ($0, $0.isHidden) }
         
@@ -138,7 +140,7 @@ extension CameraViewController: ItemHandling {
             return
         }
         
-        let node = ItemNode(type: currentItem.type)
+        let node = ItemNode.node(forType: currentItem.type)
         let worldTransform = SCNMatrix4(transform)
         node.setWorldTransform(worldTransform)
         self.shownItemNodes.insert(node)
@@ -149,7 +151,7 @@ extension CameraViewController: ItemHandling {
     }
     
     func didSelect(node: SCNNode) {
-        guard let itemNode = node as? ItemNode else {
+        guard let itemNode = self.itemNode(for: node) as? ItemNode else {
             return
         }
         
@@ -158,12 +160,15 @@ extension CameraViewController: ItemHandling {
         self.shownItemNodes.remove(itemNode)
     }
     
-    func hasItem(for node: SCNNode) -> Bool {
-        guard let itemNode = node as? ItemNode else {
-            return false
+    func itemNode(for node: SCNNode) -> SCNNode? {
+        guard let itemNode = (node as? ItemNode) ?? (node.parent as? ItemNode) else {
+            return nil
         }
         
-        return self.shownItemNodes.contains(itemNode)
+        guard self.shownItemNodes.contains(itemNode) else {
+            return nil
+        }
+        return itemNode
     }
 }
 

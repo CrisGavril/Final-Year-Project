@@ -14,6 +14,7 @@ enum ItemType: String, Codable {
     case sphere
     case table
     case chair
+    case flower
     
     public var name: String {
         get {
@@ -26,6 +27,8 @@ enum ItemType: String, Codable {
                 return "Table"
             case .chair:
                 return "Chair"
+            case .flower:
+                return "Flower"
             }
         }
     }

@@ -11,7 +11,7 @@ import MessageUI
 
 class ContactUsViewController: UIViewController {
     @IBAction func call() {
-        guard let url = URL(string: "tel:+447749147426") else {
+        guard let url = URL(string: "tel://+441122334455") else {
             return
         }
         UIApplication.shared.open(url)

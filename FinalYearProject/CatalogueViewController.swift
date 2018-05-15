@@ -52,14 +52,23 @@ class CatalogueViewController: UIViewController {
         case .favourites:
             items = allItems.filter{ $0.isFavourite }
         }
-        
         guard let searchTerm = searchTerm?.uppercased(), searchTerm.count > 0 else {
             return items
         }
-        
         return items.filter { item in
             return item.name.uppercased().contains(searchTerm) ||
                 item.type.name.uppercased().contains(searchTerm)
+        }
+    }
+    
+    @IBAction func filterChanged(segmentControl: UISegmentedControl){
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            self.filter = .all
+        case 1:
+            self.filter = .favourites
+        default:
+            return
         }
     }
     
@@ -97,17 +106,6 @@ class CatalogueViewController: UIViewController {
         
         itemDetailsVC.item = item
         itemDetailsVC.itemIndex = self.catalogue.items.index(of: item)
-    }
-    
-    @IBAction func filterChanged(segmentControl: UISegmentedControl){
-        switch segmentControl.selectedSegmentIndex {
-        case 0:
-            self.filter = .all
-        case 1:
-            self.filter = .favourites
-        default:
-            return
-        }
     }
 }
 

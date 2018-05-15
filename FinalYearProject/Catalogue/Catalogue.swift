@@ -13,7 +13,7 @@ struct Catalogue: Codable {
     
     private static let userDefaultsKey = "catalogueUserDefaultsKey"
     private static let catalogueVersionKey = "catalogueVersionKey"
-    private static let currentCatalogueVersion = 2
+    private static let currentCatalogueVersion = 3
     
     public private(set) var items: [CatalogueItem]
     
@@ -43,8 +43,24 @@ struct Catalogue: Codable {
     
     private static func generateItem(forIndex index: Int) -> CatalogueItem {
         // App currently only supports boxes and sphere
-        let type = (index % 2 == 0) ? ItemType.box : ItemType.sphere
-        return CatalogueItem(type: type, name: Catalogue.generateItemName(forIndex: index))
+        let type: ItemType
+        let imageName: String?
+        switch index % 3 {
+        case 0:
+            type = ItemType.box
+            imageName = nil
+        case 1:
+            type = ItemType.sphere
+            imageName = nil
+        case 2:
+            fallthrough
+        default:
+            type = ItemType.flower
+            imageName = "Flower_item"
+        }
+        return CatalogueItem(type: type,
+                             name: Catalogue.generateItemName(forIndex: index),
+                             imageName:imageName)
     }
     
     

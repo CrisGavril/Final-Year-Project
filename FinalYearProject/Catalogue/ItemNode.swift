@@ -16,26 +16,30 @@ class ItemNode: SCNNode {
 
     var anchor: ARAnchor? = nil
     
-    init(type: ItemType) {
-        super.init()
+    class func node(forType type: ItemType) -> ItemNode {
+        let node: ItemNode
         switch type {
         case .box:
+            node = ItemNode()
             let box = SCNBox(width: ItemNode.kBoxSide,
                              height: ItemNode.kBoxSide,
                              length: ItemNode.kBoxSide,
                              chamferRadius: 0)
-            self.geometry = box
-            
+            node.geometry = box
         case .sphere:
+            node = ItemNode()
             let sphere = SCNSphere(radius: ItemNode.kSphereRadius)
-            self.geometry = sphere
+            node.geometry = sphere
+        case .flower:
+            let url = Bundle.main.url(forResource: "Flower", withExtension: "scn")
+            let scene = try! SCNScene(url: url!, options: nil)
+            let flower = scene.rootNode.childNodes.first!
+            node = ItemNode()
+            node.addChildNode(flower)
         default:
-            assertionFailure("Case undeclared")
+            fatalError("Case undeclared")
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return node
     }
     
     public func addOrUpdateAnchor(in session: ARSession) {

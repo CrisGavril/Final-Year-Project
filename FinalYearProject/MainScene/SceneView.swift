@@ -12,7 +12,7 @@ import SceneKit
 @objc protocol ItemHandling {
     func addItem(at transform: matrix_float4x4, in scene: SceneView)
     func didSelect(node: SCNNode)
-    func hasItem(for node: SCNNode) -> Bool
+    func itemNode(for node: SCNNode) -> SCNNode?
 }
 
 class SceneView: ARSCNView {
@@ -191,8 +191,8 @@ class SceneView: ARSCNView {
         let hitTestResults = self.hitTest(tapLocation)
         
         for node in hitTestResults.map({ $0.node }) {
-            if itemHandler.hasItem(for: node) {
-                return node
+            if let itemNode = itemHandler.itemNode(for: node) {
+                return itemNode
             }
         }
         

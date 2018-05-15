@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B1B78EE20AA62AE00D370F6 /* Flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78E820AA62AD00D370F6 /* Flower.jpg */; };
+		6B1B78EF20AA62AE00D370F6 /* Flower.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78E920AA62AD00D370F6 /* Flower.scn */; };
+		6B1B78F020AA62AE00D370F6 /* house_plant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78EA20AA62AD00D370F6 /* house_plant.obj */; };
+		6B1B78F120AA62AE00D370F6 /* leaf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78EB20AA62AE00D370F6 /* leaf.jpg */; };
+		6B1B78F220AA62AE00D370F6 /* house_plant.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78EC20AA62AE00D370F6 /* house_plant.mtl */; };
+		6B1B78F320AA62AE00D370F6 /* wood.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78ED20AA62AE00D370F6 /* wood.JPG */; };
 		6B2C2F3E206FBF6D009BCBEA /* Catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */; };
 		6B3EE09520822F7700C54162 /* CatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE09420822F7700C54162 /* CatalogueViewController.swift */; };
 		6B905B5F208B81CB00F18F7B /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B905B5E208B81CB00F18F7B /* ContactUsViewController.swift */; };
 		6B905B62208BC9DD00F18F7B /* CatalogueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B905B61208BC9DD00F18F7B /* CatalogueItem.swift */; };
 		6B905B78208BCAF200F18F7B /* ItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B905B63208BCA0000F18F7B /* ItemNode.swift */; };
 		6B905B7A2095F14F00F18F7B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B905B792095F14F00F18F7B /* Utils.swift */; };
-		6B93711C2062B65200CDB829 /* Granit_kitchen_table.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6B9371182062B65100CDB829 /* Granit_kitchen_table.mtl */; };
-		6B93711D2062B65200CDB829 /* Granit kitchen table.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6B9371192062B65100CDB829 /* Granit kitchen table.obj */; };
-		6B93711E2062B65200CDB829 /* Granit_kitchen_table_bottom_bottom_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B93711A2062B65100CDB829 /* Granit_kitchen_table_bottom_bottom_8.png */; };
-		6B93711F2062B65200CDB829 /* Granit_kitchen_table_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B93711B2062B65200CDB829 /* Granit_kitchen_table_default.png */; };
-		6B9371212062B7BC00CDB829 /* Table.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B9371202062B7BC00CDB829 /* Table.scn */; };
 		6B9371262062BE6000CDB829 /* Scene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B9371252062BE6000CDB829 /* Scene.scn */; };
 		6B93712A2062C22D00CDB829 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9371292062C22D00CDB829 /* Scene.swift */; };
 		6B93712C2062C32900CDB829 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B93712B2062C32900CDB829 /* SceneView.swift */; };
@@ -43,17 +44,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B1B78E820AA62AD00D370F6 /* Flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Flower.jpg; sourceTree = "<group>"; };
+		6B1B78E920AA62AD00D370F6 /* Flower.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Flower.scn; sourceTree = "<group>"; };
+		6B1B78EA20AA62AD00D370F6 /* house_plant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = house_plant.obj; sourceTree = "<group>"; };
+		6B1B78EB20AA62AE00D370F6 /* leaf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leaf.jpg; sourceTree = "<group>"; };
+		6B1B78EC20AA62AE00D370F6 /* house_plant.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = house_plant.mtl; sourceTree = "<group>"; };
+		6B1B78ED20AA62AE00D370F6 /* wood.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood.JPG; sourceTree = "<group>"; };
 		6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalogue.swift; sourceTree = "<group>"; };
 		6B3EE09420822F7700C54162 /* CatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewController.swift; sourceTree = "<group>"; };
 		6B905B5E208B81CB00F18F7B /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		6B905B61208BC9DD00F18F7B /* CatalogueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueItem.swift; sourceTree = "<group>"; };
 		6B905B63208BCA0000F18F7B /* ItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNode.swift; sourceTree = "<group>"; };
 		6B905B792095F14F00F18F7B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		6B9371182062B65100CDB829 /* Granit_kitchen_table.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Granit_kitchen_table.mtl; sourceTree = "<group>"; };
-		6B9371192062B65100CDB829 /* Granit kitchen table.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Granit kitchen table.obj"; sourceTree = "<group>"; };
-		6B93711A2062B65100CDB829 /* Granit_kitchen_table_bottom_bottom_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Granit_kitchen_table_bottom_bottom_8.png; sourceTree = "<group>"; };
-		6B93711B2062B65200CDB829 /* Granit_kitchen_table_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Granit_kitchen_table_default.png; sourceTree = "<group>"; };
-		6B9371202062B7BC00CDB829 /* Table.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Table.scn; sourceTree = "<group>"; };
 		6B9371252062BE6000CDB829 /* Scene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Scene.scn; sourceTree = "<group>"; };
 		6B9371292062C22D00CDB829 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		6B93712B2062C32900CDB829 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
@@ -78,6 +80,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B1B78E720AA629F00D370F6 /* Flower */ = {
+			isa = PBXGroup;
+			children = (
+				6B1B78E820AA62AD00D370F6 /* Flower.jpg */,
+				6B1B78E920AA62AD00D370F6 /* Flower.scn */,
+				6B1B78EC20AA62AE00D370F6 /* house_plant.mtl */,
+				6B1B78EA20AA62AD00D370F6 /* house_plant.obj */,
+				6B1B78EB20AA62AE00D370F6 /* leaf.jpg */,
+				6B1B78ED20AA62AE00D370F6 /* wood.JPG */,
+			);
+			path = Flower;
+			sourceTree = "<group>";
+		};
 		6B905B60208BC9CE00F18F7B /* Catalogue */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,18 +101,6 @@
 				6B905B63208BCA0000F18F7B /* ItemNode.swift */,
 			);
 			path = Catalogue;
-			sourceTree = "<group>";
-		};
-		6B9371172062B63000CDB829 /* Table */ = {
-			isa = PBXGroup;
-			children = (
-				6B9371202062B7BC00CDB829 /* Table.scn */,
-				6B9371192062B65100CDB829 /* Granit kitchen table.obj */,
-				6B93711A2062B65100CDB829 /* Granit_kitchen_table_bottom_bottom_8.png */,
-				6B93711B2062B65200CDB829 /* Granit_kitchen_table_default.png */,
-				6B9371182062B65100CDB829 /* Granit_kitchen_table.mtl */,
-			);
-			path = Table;
 			sourceTree = "<group>";
 		};
 		6B9371222062BBF100CDB829 /* MainScene */ = {
@@ -137,7 +140,7 @@
 				6B905B792095F14F00F18F7B /* Utils.swift */,
 				6B905B60208BC9CE00F18F7B /* Catalogue */,
 				6B9371222062BBF100CDB829 /* MainScene */,
-				6B9371172062B63000CDB829 /* Table */,
+				6B1B78E720AA629F00D370F6 /* Flower */,
 				6BFB79922054510A00AB84E8 /* Main.storyboard */,
 				6BFB79952054510A00AB84E8 /* Assets.xcassets */,
 				6BFB79972054510A00AB84E8 /* LaunchScreen.storyboard */,
@@ -206,14 +209,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B93711F2062B65200CDB829 /* Granit_kitchen_table_default.png in Resources */,
-				6B93711D2062B65200CDB829 /* Granit kitchen table.obj in Resources */,
-				6B93711E2062B65200CDB829 /* Granit_kitchen_table_bottom_bottom_8.png in Resources */,
-				6B9371212062B7BC00CDB829 /* Table.scn in Resources */,
+				6B1B78F320AA62AE00D370F6 /* wood.JPG in Resources */,
+				6B1B78F120AA62AE00D370F6 /* leaf.jpg in Resources */,
+				6B1B78EF20AA62AE00D370F6 /* Flower.scn in Resources */,
 				6BFB79992054510A00AB84E8 /* LaunchScreen.storyboard in Resources */,
-				6B93711C2062B65200CDB829 /* Granit_kitchen_table.mtl in Resources */,
+				6B1B78EE20AA62AE00D370F6 /* Flower.jpg in Resources */,
 				6B9371262062BE6000CDB829 /* Scene.scn in Resources */,
+				6B1B78F020AA62AE00D370F6 /* house_plant.obj in Resources */,
 				6BFB79962054510A00AB84E8 /* Assets.xcassets in Resources */,
+				6B1B78F220AA62AE00D370F6 /* house_plant.mtl in Resources */,
 				6BFB79942054510A00AB84E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -45,7 +45,7 @@ struct Catalogue: Codable {
         // App currently only supports boxes and sphere
         let type: ItemType
         let imageName: String?
-        switch index % 3 {
+        switch index % 5 {
         case 0:
             type = ItemType.box
             imageName = nil
@@ -53,14 +53,20 @@ struct Catalogue: Codable {
             type = ItemType.sphere
             imageName = nil
         case 2:
-            fallthrough
-        default:
             type = ItemType.flower
             imageName = "Flower_item"
+        case 3:
+            type = ItemType.table
+            imageName = nil
+        case 4:
+            type = ItemType.chair
+            imageName = nil
+        default:
+            fatalError("Case undeclared")
         }
         return CatalogueItem(type: type,
                              name: Catalogue.generateItemName(forIndex: index),
-                             imageName:imageName)
+                             imageName: imageName)
     }
     
     

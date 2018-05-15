@@ -16,28 +16,41 @@ class ItemNode: SCNNode {
 
     var anchor: ARAnchor? = nil
     
-    class func node(forType type: ItemType) -> ItemNode {
-        let node: ItemNode
+    public init(forType type: ItemType) {
+        super.init()
         switch type {
         case .box:
-            node = ItemNode()
             let box = SCNBox(width: ItemNode.kBoxSide,
                              height: ItemNode.kBoxSide,
                              length: ItemNode.kBoxSide,
                              chamferRadius: 0)
-            node.geometry = box
+            self.geometry = box
         case .sphere:
-            node = ItemNode()
             let sphere = SCNSphere(radius: ItemNode.kSphereRadius)
-            node.geometry = sphere
+            self.geometry = sphere
         case .flower:
-            let url = Bundle.main.url(forResource: "Flower", withExtension: "scn")
-            let scene = try! SCNScene(url: url!, options: nil)
-            let flower = scene.rootNode.childNodes.first!
-            node = ItemNode()
-            node.addChildNode(flower)
-        default:
-            fatalError("Case undeclared")
+            let flower = ItemNode.loadNode(fromScene: "Flower")
+            self.addChildNode(flower)
+        case .table:
+            let table = ItemNode.loadNode(fromScene: "Table")
+            self.addChildNode(table)
+        case .chair:
+            let table = ItemNode.loadNode(fromScene: "Chair")
+            self.addChildNode(table)
+//        default:
+//            fatalError("Case undeclared")
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private class func loadNode(fromScene fileName: String) -> SCNNode {
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "scn"),
+            let scene = try? SCNScene(url: url, options: nil),
+            let node = scene.rootNode.childNodes.first else {
+            fatalError("Could not load model from scene file \(fileName)")
         }
         return node
     }

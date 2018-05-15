@@ -12,9 +12,9 @@ import UIKit
 enum ItemType: String, Codable {
     case box
     case sphere
-    case table
     case chair
     case flower
+    case dresser
     
     public var name: String {
         get {
@@ -23,12 +23,12 @@ enum ItemType: String, Codable {
                 return "Box"
             case .sphere:
                 return "Sphere"
-            case .table:
-                return "Table"
             case .chair:
                 return "Chair"
             case .flower:
                 return "Flower"
+            case .dresser:
+                return "Dresser"
             }
         }
     }
@@ -39,15 +39,18 @@ struct CatalogueItem: Equatable, Codable {
     var isFavourite: Bool
     public let name: String
     private let imageName: String?
+    let sceneName: String?
     
     init(type: ItemType,
          name: String? = nil,
          isFavourite: Bool = false,
-         imageName: String? = nil) {
+         imageName: String? = nil,
+         sceneName: String? = nil) {
         self.type = type
         self.name = name ?? type.name
         self.isFavourite = isFavourite
         self.imageName = imageName ?? type.name
+        self.sceneName = sceneName
     }
     
     public var image: UIImage? {

@@ -16,7 +16,7 @@ class ItemNode: SCNNode {
 
     var anchor: ARAnchor? = nil
     
-    public init(forType type: ItemType) {
+    public init(forType type: ItemType, sceneName: String? = nil) {
         super.init()
         switch type {
         case .box:
@@ -29,14 +29,14 @@ class ItemNode: SCNNode {
             let sphere = SCNSphere(radius: ItemNode.kSphereRadius)
             self.geometry = sphere
         case .flower:
-            let flower = ItemNode.loadNode(fromScene: "Flower")
+            let flower = ItemNode.loadNode(fromScene: sceneName ?? "Flower")
             self.addChildNode(flower)
-        case .table:
-            let table = ItemNode.loadNode(fromScene: "Table")
-            self.addChildNode(table)
         case .chair:
-            let table = ItemNode.loadNode(fromScene: "Chair")
-            self.addChildNode(table)
+            let chair = ItemNode.loadNode(fromScene: sceneName ?? "Cubes ottoman")
+            self.addChildNode(chair)
+        case .dresser:
+            let dresser = ItemNode.loadNode(fromScene: sceneName ?? "Dresser")
+            self.addChildNode(dresser)
 //        default:
 //            fatalError("Case undeclared")
         }

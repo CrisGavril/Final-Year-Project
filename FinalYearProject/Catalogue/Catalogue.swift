@@ -21,55 +21,6 @@ struct Catalogue: Codable {
         self.items = items
     }
     
-    private static func generateItemName(forIndex index: Int) -> String {
-        let namePrefix: String
-        // These are random product names from Ikea.
-        // We need something that will be different from the item type to test the search functionality.
-        switch index % 3 {
-        case 0:
-            namePrefix = "Henriksdal"
-        case 1:
-            namePrefix = "Ekedalen"
-        default:
-            namePrefix = "Odger"
-        }
-        // We use this number formatter to generate spelled-out numbers that
-        // should generate nice names for our test products
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .spellOut
-        let nameSuffix = numberFormatter.string(from: NSNumber(value: index)) ?? ""
-        return "\(namePrefix) \(nameSuffix)"
-    }
-    
-    private static func generateItem(forIndex index: Int) -> CatalogueItem {
-        // App currently only supports boxes and sphere
-        let type: ItemType
-        let imageName: String?
-        switch index % 5 {
-        case 0:
-            type = ItemType.box
-            imageName = nil
-        case 1:
-            type = ItemType.sphere
-            imageName = nil
-        case 2:
-            type = ItemType.flower
-            imageName = "Flower_item"
-        case 3:
-            type = ItemType.table
-            imageName = nil
-        case 4:
-            type = ItemType.chair
-            imageName = nil
-        default:
-            fatalError("Case undeclared")
-        }
-        return CatalogueItem(type: type,
-                             name: Catalogue.generateItemName(forIndex: index),
-                             imageName: imageName)
-    }
-    
-    
     private static func shouldUsePersistedCatalogue() -> Bool {
         // The currentCatalogueVersion should be updated every time the Catalogue data structure changes
         return UserDefaults.standard.integer(forKey: Catalogue.catalogueVersionKey) == Catalogue.currentCatalogueVersion
@@ -84,7 +35,7 @@ struct Catalogue: Codable {
             // We should have data migration here in future versions
             // Presently the "data migration" consists of
             // discarding the incompatible data and generate a new version of the Catalogue
-            let items:[CatalogueItem] = (1...100).map { Catalogue.generateItem(forIndex: $0) }
+            let items:[CatalogueItem] = (1...100).map { CatalogueItemFactory.generateItem(forIndex: $0) }
             return Catalogue(items: items)
         }
     }()

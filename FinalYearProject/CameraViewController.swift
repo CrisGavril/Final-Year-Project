@@ -140,7 +140,7 @@ extension CameraViewController: ItemHandling {
             return
         }
         
-        let node = ItemNode(forType: currentItem.type)
+        let node = ItemNode(forType: currentItem.type, sceneName: currentItem.sceneName)
         let worldTransform = SCNMatrix4(transform)
         node.setWorldTransform(worldTransform)
         self.shownItemNodes.insert(node)

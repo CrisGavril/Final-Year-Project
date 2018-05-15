@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		6B1B78EE20AA62AE00D370F6 /* Flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78E820AA62AD00D370F6 /* Flower.jpg */; };
 		6B1B78EF20AA62AE00D370F6 /* Flower.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78E920AA62AD00D370F6 /* Flower.scn */; };
-		6B1B78F020AA62AE00D370F6 /* house_plant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78EA20AA62AD00D370F6 /* house_plant.obj */; };
 		6B1B78F120AA62AE00D370F6 /* leaf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78EB20AA62AE00D370F6 /* leaf.jpg */; };
-		6B1B78F220AA62AE00D370F6 /* house_plant.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78EC20AA62AE00D370F6 /* house_plant.mtl */; };
 		6B1B78F320AA62AE00D370F6 /* wood.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78ED20AA62AE00D370F6 /* wood.JPG */; };
-		6B1B78FC20AAD15300D370F6 /* table.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78FA20AAD15300D370F6 /* table.obj */; };
-		6B1B78FD20AAD15300D370F6 /* table.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78FB20AAD15300D370F6 /* table.mtl */; };
-		6B1B790020AAD16200D370F6 /* WoodSeemles1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78FE20AAD16200D370F6 /* WoodSeemles1.jpg */; };
-		6B1B790120AAD16200D370F6 /* WoodSeemles.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B78FF20AAD16200D370F6 /* WoodSeemles.jpg */; };
-		6B1B790320AAD18700D370F6 /* Chair.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B790220AAD18700D370F6 /* Chair.scn */; };
-		6B1B790520AAD1A100D370F6 /* Table.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B790420AAD1A100D370F6 /* Table.scn */; };
-		6B1B790B20AADA4300D370F6 /* chair_chesterfield.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B790620AADA4300D370F6 /* chair_chesterfield.obj */; };
-		6B1B790C20AADA4300D370F6 /* chair_chesterfield_d.dds in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B790720AADA4300D370F6 /* chair_chesterfield_d.dds */; };
-		6B1B790D20AADA4300D370F6 /* chair_chesterfield_s.dds in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B790820AADA4300D370F6 /* chair_chesterfield_s.dds */; };
-		6B1B790E20AADA4300D370F6 /* chair_chesterfield_n.dds in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B790920AADA4300D370F6 /* chair_chesterfield_n.dds */; };
-		6B1B790F20AADA4300D370F6 /* chair_chesterfield.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B790A20AADA4300D370F6 /* chair_chesterfield.mtl */; };
 		6B2C2F3E206FBF6D009BCBEA /* Catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */; };
 		6B3EE09520822F7700C54162 /* CatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE09420822F7700C54162 /* CatalogueViewController.swift */; };
+		6B60EA8620AADEAB00C17366 /* leaf_refract.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA8220AADEAA00C17366 /* leaf_refract.jpg */; };
+		6B60EA8920AADEAB00C17366 /* leaf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA8520AADEAB00C17366 /* leaf.jpg */; };
+		6B60EA8B20AADEB700C17366 /* Flower2.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA8A20AADEB700C17366 /* Flower2.scn */; };
+		6B60EA9520AB62C900C17366 /* Leather_Chair_D.tga in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA9020AB62C900C17366 /* Leather_Chair_D.tga */; };
+		6B60EAA120AB632D00C17366 /* Wood_DIFF.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA9A20AB632D00C17366 /* Wood_DIFF.jpg */; };
+		6B60EAA420AB632D00C17366 /* Fabric_DIFF.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA9D20AB632D00C17366 /* Fabric_DIFF.jpg */; };
+		6B60EAC220AB63BF00C17366 /* eb_dresser_01_c.tga in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EABC20AB63BF00C17366 /* eb_dresser_01_c.tga */; };
+		6B60EAD020AB643400C17366 /* narra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EACC20AB643300C17366 /* narra.jpg */; };
+		6B60EAD220AB643400C17366 /* Duck waterproof.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EACE20AB643400C17366 /* Duck waterproof.jpg */; };
+		6B60EADD20AB647700C17366 /* _04_d.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EAD520AB647500C17366 /* _04_d.jpg */; };
+		6B60EAE520AB64A100C17366 /* Cubes ottoman.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EAE420AB64A100C17366 /* Cubes ottoman.scn */; };
+		6B60EAE820AB65A600C17366 /* dirt_gl_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EAE720AB65A600C17366 /* dirt_gl_1.jpg */; };
+		6B60EAEA20AB668000C17366 /* Flowchair.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EAE920AB668000C17366 /* Flowchair.scn */; };
+		6B60EAEE20AB686D00C17366 /* Dresser.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EAED20AB686D00C17366 /* Dresser.scn */; };
+		6B60EAF220AB6A5200C17366 /* Bella's barstool.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EAF120AB6A5200C17366 /* Bella's barstool.scn */; };
+		6B60EAF420AB6AEE00C17366 /* Leather chair.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EAF320AB6AEE00C17366 /* Leather chair.scn */; };
+		6B60EAF620AB747900C17366 /* CatalogueItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B60EAF520AB747900C17366 /* CatalogueItemFactory.swift */; };
 		6B905B5F208B81CB00F18F7B /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B905B5E208B81CB00F18F7B /* ContactUsViewController.swift */; };
 		6B905B62208BC9DD00F18F7B /* CatalogueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B905B61208BC9DD00F18F7B /* CatalogueItem.swift */; };
 		6B905B78208BCAF200F18F7B /* ItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B905B63208BCA0000F18F7B /* ItemNode.swift */; };
@@ -57,23 +61,27 @@
 /* Begin PBXFileReference section */
 		6B1B78E820AA62AD00D370F6 /* Flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Flower.jpg; sourceTree = "<group>"; };
 		6B1B78E920AA62AD00D370F6 /* Flower.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Flower.scn; sourceTree = "<group>"; };
-		6B1B78EA20AA62AD00D370F6 /* house_plant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = house_plant.obj; sourceTree = "<group>"; };
 		6B1B78EB20AA62AE00D370F6 /* leaf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leaf.jpg; sourceTree = "<group>"; };
-		6B1B78EC20AA62AE00D370F6 /* house_plant.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = house_plant.mtl; sourceTree = "<group>"; };
 		6B1B78ED20AA62AE00D370F6 /* wood.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood.JPG; sourceTree = "<group>"; };
-		6B1B78FA20AAD15300D370F6 /* table.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = table.obj; sourceTree = "<group>"; };
-		6B1B78FB20AAD15300D370F6 /* table.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = table.mtl; sourceTree = "<group>"; };
-		6B1B78FE20AAD16200D370F6 /* WoodSeemles1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WoodSeemles1.jpg; sourceTree = "<group>"; };
-		6B1B78FF20AAD16200D370F6 /* WoodSeemles.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WoodSeemles.jpg; sourceTree = "<group>"; };
-		6B1B790220AAD18700D370F6 /* Chair.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Chair.scn; sourceTree = "<group>"; };
-		6B1B790420AAD1A100D370F6 /* Table.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Table.scn; sourceTree = "<group>"; };
-		6B1B790620AADA4300D370F6 /* chair_chesterfield.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chair_chesterfield.obj; sourceTree = "<group>"; };
-		6B1B790720AADA4300D370F6 /* chair_chesterfield_d.dds */ = {isa = PBXFileReference; lastKnownFileType = file; path = chair_chesterfield_d.dds; sourceTree = "<group>"; };
-		6B1B790820AADA4300D370F6 /* chair_chesterfield_s.dds */ = {isa = PBXFileReference; lastKnownFileType = file; path = chair_chesterfield_s.dds; sourceTree = "<group>"; };
-		6B1B790920AADA4300D370F6 /* chair_chesterfield_n.dds */ = {isa = PBXFileReference; lastKnownFileType = file; path = chair_chesterfield_n.dds; sourceTree = "<group>"; };
-		6B1B790A20AADA4300D370F6 /* chair_chesterfield.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chair_chesterfield.mtl; sourceTree = "<group>"; };
 		6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalogue.swift; sourceTree = "<group>"; };
 		6B3EE09420822F7700C54162 /* CatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewController.swift; sourceTree = "<group>"; };
+		6B60EA8220AADEAA00C17366 /* leaf_refract.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leaf_refract.jpg; sourceTree = "<group>"; };
+		6B60EA8520AADEAB00C17366 /* leaf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leaf.jpg; sourceTree = "<group>"; };
+		6B60EA8A20AADEB700C17366 /* Flower2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Flower2.scn; sourceTree = "<group>"; };
+		6B60EA9020AB62C900C17366 /* Leather_Chair_D.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Leather_Chair_D.tga; sourceTree = "<group>"; };
+		6B60EA9A20AB632D00C17366 /* Wood_DIFF.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wood_DIFF.jpg; sourceTree = "<group>"; };
+		6B60EA9D20AB632D00C17366 /* Fabric_DIFF.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fabric_DIFF.jpg; sourceTree = "<group>"; };
+		6B60EABC20AB63BF00C17366 /* eb_dresser_01_c.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = eb_dresser_01_c.tga; sourceTree = "<group>"; };
+		6B60EACC20AB643300C17366 /* narra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = narra.jpg; sourceTree = "<group>"; };
+		6B60EACE20AB643400C17366 /* Duck waterproof.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Duck waterproof.jpg"; sourceTree = "<group>"; };
+		6B60EAD520AB647500C17366 /* _04_d.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = _04_d.jpg; sourceTree = "<group>"; };
+		6B60EAE420AB64A100C17366 /* Cubes ottoman.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Cubes ottoman.scn"; sourceTree = "<group>"; };
+		6B60EAE720AB65A600C17366 /* dirt_gl_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dirt_gl_1.jpg; sourceTree = "<group>"; };
+		6B60EAE920AB668000C17366 /* Flowchair.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Flowchair.scn; sourceTree = "<group>"; };
+		6B60EAED20AB686D00C17366 /* Dresser.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Dresser.scn; sourceTree = "<group>"; };
+		6B60EAF120AB6A5200C17366 /* Bella's barstool.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Bella's barstool.scn"; sourceTree = "<group>"; };
+		6B60EAF320AB6AEE00C17366 /* Leather chair.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Leather chair.scn"; sourceTree = "<group>"; };
+		6B60EAF520AB747900C17366 /* CatalogueItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueItemFactory.swift; sourceTree = "<group>"; };
 		6B905B5E208B81CB00F18F7B /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		6B905B61208BC9DD00F18F7B /* CatalogueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueItem.swift; sourceTree = "<group>"; };
 		6B905B63208BCA0000F18F7B /* ItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNode.swift; sourceTree = "<group>"; };
@@ -107,43 +115,89 @@
 			children = (
 				6B1B78E820AA62AD00D370F6 /* Flower.jpg */,
 				6B1B78E920AA62AD00D370F6 /* Flower.scn */,
-				6B1B78EC20AA62AE00D370F6 /* house_plant.mtl */,
-				6B1B78EA20AA62AD00D370F6 /* house_plant.obj */,
 				6B1B78EB20AA62AE00D370F6 /* leaf.jpg */,
 				6B1B78ED20AA62AE00D370F6 /* wood.JPG */,
 			);
 			path = Flower;
 			sourceTree = "<group>";
 		};
-		6B1B78F420AAD0F900D370F6 /* Table */ = {
+		6B60EA8120AADE8900C17366 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6B1B78FB20AAD15300D370F6 /* table.mtl */,
-				6B1B78FA20AAD15300D370F6 /* table.obj */,
-				6B1B790420AAD1A100D370F6 /* Table.scn */,
-				6B1B78FF20AAD16200D370F6 /* WoodSeemles.jpg */,
-				6B1B78FE20AAD16200D370F6 /* WoodSeemles1.jpg */,
+				6B60EA9920AB631C00C17366 /* Bella's barstool */,
+				6B60EAD320AB646D00C17366 /* Cubes ottoman */,
+				6B60EAB820AB63A500C17366 /* Dresser */,
+				6B60EACA20AB642A00C17366 /* Flowchair */,
+				6B1B78E720AA629F00D370F6 /* Flower */,
+				6B60EA8C20AB628900C17366 /* Flower 2 */,
+				6B60EA8D20AB62A000C17366 /* Leather chair */,
 			);
-			path = Table;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		6B1B78F520AAD11000D370F6 /* Chair */ = {
+		6B60EA8C20AB628900C17366 /* Flower 2 */ = {
 			isa = PBXGroup;
 			children = (
-				6B1B790720AADA4300D370F6 /* chair_chesterfield_d.dds */,
-				6B1B790920AADA4300D370F6 /* chair_chesterfield_n.dds */,
-				6B1B790820AADA4300D370F6 /* chair_chesterfield_s.dds */,
-				6B1B790A20AADA4300D370F6 /* chair_chesterfield.mtl */,
-				6B1B790620AADA4300D370F6 /* chair_chesterfield.obj */,
-				6B1B790220AAD18700D370F6 /* Chair.scn */,
+				6B60EA8220AADEAA00C17366 /* leaf_refract.jpg */,
+				6B60EA8520AADEAB00C17366 /* leaf.jpg */,
+				6B60EA8A20AADEB700C17366 /* Flower2.scn */,
 			);
-			path = Chair;
+			path = "Flower 2";
+			sourceTree = "<group>";
+		};
+		6B60EA8D20AB62A000C17366 /* Leather chair */ = {
+			isa = PBXGroup;
+			children = (
+				6B60EA9020AB62C900C17366 /* Leather_Chair_D.tga */,
+				6B60EAF320AB6AEE00C17366 /* Leather chair.scn */,
+			);
+			path = "Leather chair";
+			sourceTree = "<group>";
+		};
+		6B60EA9920AB631C00C17366 /* Bella's barstool */ = {
+			isa = PBXGroup;
+			children = (
+				6B60EA9D20AB632D00C17366 /* Fabric_DIFF.jpg */,
+				6B60EA9A20AB632D00C17366 /* Wood_DIFF.jpg */,
+				6B60EAF120AB6A5200C17366 /* Bella's barstool.scn */,
+			);
+			path = "Bella's barstool";
+			sourceTree = "<group>";
+		};
+		6B60EAB820AB63A500C17366 /* Dresser */ = {
+			isa = PBXGroup;
+			children = (
+				6B60EABC20AB63BF00C17366 /* eb_dresser_01_c.tga */,
+				6B60EAED20AB686D00C17366 /* Dresser.scn */,
+			);
+			path = Dresser;
+			sourceTree = "<group>";
+		};
+		6B60EACA20AB642A00C17366 /* Flowchair */ = {
+			isa = PBXGroup;
+			children = (
+				6B60EACE20AB643400C17366 /* Duck waterproof.jpg */,
+				6B60EACC20AB643300C17366 /* narra.jpg */,
+				6B60EAE920AB668000C17366 /* Flowchair.scn */,
+			);
+			path = Flowchair;
+			sourceTree = "<group>";
+		};
+		6B60EAD320AB646D00C17366 /* Cubes ottoman */ = {
+			isa = PBXGroup;
+			children = (
+				6B60EAD520AB647500C17366 /* _04_d.jpg */,
+				6B60EAE720AB65A600C17366 /* dirt_gl_1.jpg */,
+				6B60EAE420AB64A100C17366 /* Cubes ottoman.scn */,
+			);
+			path = "Cubes ottoman";
 			sourceTree = "<group>";
 		};
 		6B905B60208BC9CE00F18F7B /* Catalogue */ = {
 			isa = PBXGroup;
 			children = (
 				6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */,
+				6B60EAF520AB747900C17366 /* CatalogueItemFactory.swift */,
 				6B905B61208BC9DD00F18F7B /* CatalogueItem.swift */,
 				6B905B63208BCA0000F18F7B /* ItemNode.swift */,
 			);
@@ -187,9 +241,7 @@
 				6B905B792095F14F00F18F7B /* Utils.swift */,
 				6B905B60208BC9CE00F18F7B /* Catalogue */,
 				6B9371222062BBF100CDB829 /* MainScene */,
-				6B1B78F420AAD0F900D370F6 /* Table */,
-				6B1B78F520AAD11000D370F6 /* Chair */,
-				6B1B78E720AA629F00D370F6 /* Flower */,
+				6B60EA8120AADE8900C17366 /* Models */,
 				6BFB79922054510A00AB84E8 /* Main.storyboard */,
 				6BFB79952054510A00AB84E8 /* Assets.xcassets */,
 				6BFB79972054510A00AB84E8 /* LaunchScreen.storyboard */,
@@ -258,26 +310,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B60EAE820AB65A600C17366 /* dirt_gl_1.jpg in Resources */,
 				6B1B78F320AA62AE00D370F6 /* wood.JPG in Resources */,
 				6B1B78F120AA62AE00D370F6 /* leaf.jpg in Resources */,
-				6B1B790C20AADA4300D370F6 /* chair_chesterfield_d.dds in Resources */,
 				6B1B78EF20AA62AE00D370F6 /* Flower.scn in Resources */,
-				6B1B790520AAD1A100D370F6 /* Table.scn in Resources */,
+				6B60EAEA20AB668000C17366 /* Flowchair.scn in Resources */,
 				6BFB79992054510A00AB84E8 /* LaunchScreen.storyboard in Resources */,
-				6B1B790320AAD18700D370F6 /* Chair.scn in Resources */,
-				6B1B790120AAD16200D370F6 /* WoodSeemles.jpg in Resources */,
-				6B1B790B20AADA4300D370F6 /* chair_chesterfield.obj in Resources */,
-				6B1B790020AAD16200D370F6 /* WoodSeemles1.jpg in Resources */,
-				6B1B790E20AADA4300D370F6 /* chair_chesterfield_n.dds in Resources */,
+				6B60EADD20AB647700C17366 /* _04_d.jpg in Resources */,
+				6B60EAEE20AB686D00C17366 /* Dresser.scn in Resources */,
+				6B60EAD220AB643400C17366 /* Duck waterproof.jpg in Resources */,
+				6B60EAE520AB64A100C17366 /* Cubes ottoman.scn in Resources */,
+				6B60EAD020AB643400C17366 /* narra.jpg in Resources */,
+				6B60EAA120AB632D00C17366 /* Wood_DIFF.jpg in Resources */,
+				6B60EAC220AB63BF00C17366 /* eb_dresser_01_c.tga in Resources */,
+				6B60EA8620AADEAB00C17366 /* leaf_refract.jpg in Resources */,
+				6B60EAF420AB6AEE00C17366 /* Leather chair.scn in Resources */,
+				6B60EAF220AB6A5200C17366 /* Bella's barstool.scn in Resources */,
 				6B1B78EE20AA62AE00D370F6 /* Flower.jpg in Resources */,
-				6B1B78FC20AAD15300D370F6 /* table.obj in Resources */,
 				6B9371262062BE6000CDB829 /* Scene.scn in Resources */,
-				6B1B790D20AADA4300D370F6 /* chair_chesterfield_s.dds in Resources */,
-				6B1B78F020AA62AE00D370F6 /* house_plant.obj in Resources */,
-				6B1B78FD20AAD15300D370F6 /* table.mtl in Resources */,
+				6B60EAA420AB632D00C17366 /* Fabric_DIFF.jpg in Resources */,
+				6B60EA9520AB62C900C17366 /* Leather_Chair_D.tga in Resources */,
+				6B60EA8B20AADEB700C17366 /* Flower2.scn in Resources */,
 				6BFB79962054510A00AB84E8 /* Assets.xcassets in Resources */,
-				6B1B78F220AA62AE00D370F6 /* house_plant.mtl in Resources */,
-				6B1B790F20AADA4300D370F6 /* chair_chesterfield.mtl in Resources */,
+				6B60EA8920AADEAB00C17366 /* leaf.jpg in Resources */,
 				6BFB79942054510A00AB84E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +346,7 @@
 			files = (
 				6B3EE09520822F7700C54162 /* CatalogueViewController.swift in Sources */,
 				6B93712A2062C22D00CDB829 /* Scene.swift in Sources */,
+				6B60EAF620AB747900C17366 /* CatalogueItemFactory.swift in Sources */,
 				6B93712C2062C32900CDB829 /* SceneView.swift in Sources */,
 				6B905B62208BC9DD00F18F7B /* CatalogueItem.swift in Sources */,
 				6B905B5F208B81CB00F18F7B /* ContactUsViewController.swift in Sources */,

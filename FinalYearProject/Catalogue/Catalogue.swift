@@ -35,7 +35,7 @@ struct Catalogue: Codable {
             // We should have data migration here in future versions
             // Presently the "data migration" consists of
             // discarding the incompatible data and generate a new version of the Catalogue
-            let items:[CatalogueItem] = (1...100).map { CatalogueItemFactory.generateItem(forIndex: $0) }
+            let items:[CatalogueItem] = (0 ..< 100).map { CatalogueItemFactory.generateItem(forIndex: $0) }
             return Catalogue(items: items)
         }
     }()

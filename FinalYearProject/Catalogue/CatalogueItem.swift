@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 enum ItemType: String, Codable {
-    case box
-    case sphere
     case chair
     case flower
     case dresser
@@ -19,10 +17,6 @@ enum ItemType: String, Codable {
     public var name: String {
         get {
             switch self {
-            case .box:
-                return "Box"
-            case .sphere:
-                return "Sphere"
             case .chair:
                 return "Chair"
             case .flower:

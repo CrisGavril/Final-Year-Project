@@ -14,7 +14,7 @@
 		6B2C2F3E206FBF6D009BCBEA /* Catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */; };
 		6B3EE09520822F7700C54162 /* CatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE09420822F7700C54162 /* CatalogueViewController.swift */; };
 		6B60EA8620AADEAB00C17366 /* leaf_refract.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA8220AADEAA00C17366 /* leaf_refract.jpg */; };
-		6B60EA8920AADEAB00C17366 /* leaf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA8520AADEAB00C17366 /* leaf.jpg */; };
+		6B60EA8920AADEAB00C17366 /* leaf2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA8520AADEAB00C17366 /* leaf2.jpg */; };
 		6B60EA8B20AADEB700C17366 /* Flower2.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA8A20AADEB700C17366 /* Flower2.scn */; };
 		6B60EA9520AB62C900C17366 /* Leather_Chair_D.tga in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA9020AB62C900C17366 /* Leather_Chair_D.tga */; };
 		6B60EAA120AB632D00C17366 /* Wood_DIFF.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B60EA9A20AB632D00C17366 /* Wood_DIFF.jpg */; };
@@ -66,7 +66,7 @@
 		6B2C2F3D206FBF6D009BCBEA /* Catalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalogue.swift; sourceTree = "<group>"; };
 		6B3EE09420822F7700C54162 /* CatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewController.swift; sourceTree = "<group>"; };
 		6B60EA8220AADEAA00C17366 /* leaf_refract.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leaf_refract.jpg; sourceTree = "<group>"; };
-		6B60EA8520AADEAB00C17366 /* leaf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leaf.jpg; sourceTree = "<group>"; };
+		6B60EA8520AADEAB00C17366 /* leaf2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leaf2.jpg; sourceTree = "<group>"; };
 		6B60EA8A20AADEB700C17366 /* Flower2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Flower2.scn; sourceTree = "<group>"; };
 		6B60EA9020AB62C900C17366 /* Leather_Chair_D.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Leather_Chair_D.tga; sourceTree = "<group>"; };
 		6B60EA9A20AB632D00C17366 /* Wood_DIFF.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wood_DIFF.jpg; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				6B60EA8220AADEAA00C17366 /* leaf_refract.jpg */,
-				6B60EA8520AADEAB00C17366 /* leaf.jpg */,
+				6B60EA8520AADEAB00C17366 /* leaf2.jpg */,
 				6B60EA8A20AADEB700C17366 /* Flower2.scn */,
 			);
 			path = "Flower 2";
@@ -332,7 +332,7 @@
 				6B60EA9520AB62C900C17366 /* Leather_Chair_D.tga in Resources */,
 				6B60EA8B20AADEB700C17366 /* Flower2.scn in Resources */,
 				6BFB79962054510A00AB84E8 /* Assets.xcassets in Resources */,
-				6B60EA8920AADEAB00C17366 /* leaf.jpg in Resources */,
+				6B60EA8920AADEAB00C17366 /* leaf2.jpg in Resources */,
 				6BFB79942054510A00AB84E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

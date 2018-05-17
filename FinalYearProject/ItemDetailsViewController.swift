@@ -38,6 +38,7 @@ class ItemDetailsViewController: UIViewController {
         self.title = self.item.name
         self.imageView.image = self.item.image
         self.updateFavouriteButton()
+        self.view.setNeedsLayout()
     }
 }
 

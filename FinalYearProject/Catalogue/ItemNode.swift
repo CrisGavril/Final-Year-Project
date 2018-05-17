@@ -11,23 +11,11 @@ import SceneKit
 import ARKit
 
 class ItemNode: SCNNode {
-    private static let kBoxSide: CGFloat = 0.5 //meters
-    private static let kSphereRadius: CGFloat = 0.25 //meters
-
     var anchor: ARAnchor? = nil
     
     public init(forType type: ItemType, sceneName: String? = nil) {
         super.init()
         switch type {
-        case .box:
-            let box = SCNBox(width: ItemNode.kBoxSide,
-                             height: ItemNode.kBoxSide,
-                             length: ItemNode.kBoxSide,
-                             chamferRadius: 0)
-            self.geometry = box
-        case .sphere:
-            let sphere = SCNSphere(radius: ItemNode.kSphereRadius)
-            self.geometry = sphere
         case .flower:
             let flower = ItemNode.loadNode(fromScene: sceneName ?? "Flower")
             self.addChildNode(flower)

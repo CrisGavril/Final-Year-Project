@@ -10,7 +10,7 @@ import Foundation
 
 // For demo purposes only
 struct CatalogueItemFactory {
-    fileprivate static let kNumberOfModels = 9
+    fileprivate static let kNumberOfModels = 7
     fileprivate static let kNumberOfChairModels = 4
     fileprivate static let kNumberOfFlowerModels = 2
     
@@ -33,10 +33,6 @@ struct CatalogueItemFactory {
             namePrefix = "Vikare"
         case 6:
             namePrefix = "Frysa"
-        case 7:
-            namePrefix = "Huttra"
-        case 8:
-            namePrefix = "Tinad"
         default:
             fatalError("Case undefined")
         }
@@ -44,7 +40,7 @@ struct CatalogueItemFactory {
         // should generate nice names for our test products
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .spellOut
-        let nameSuffix = numberFormatter.string(from: NSNumber(value: index)) ?? ""
+        let nameSuffix = numberFormatter.string(from: NSNumber(value: index + 1)) ?? ""
         return "\(namePrefix) \(nameSuffix)"
     }
     
@@ -75,27 +71,18 @@ struct CatalogueItemFactory {
     }
     
     static func generateItem(forIndex index: Int) -> CatalogueItem {
-        // App currently only supports boxes and sphere
         let type = ItemType(withIndex: index)
-        let imageName: String?
-        let sceneName: String?
+        let sceneName: String
         switch type {
-        case .box:
-            imageName = "Box item"
-            sceneName = nil
-        case .sphere:
-            imageName = "Sphere item"
-            sceneName = nil
         case .chair:
-            imageName = "Some chair" //TODO: add chair images and image name factory
-            sceneName = CatalogueItemFactory.generateChairSceneName(forIndex: index)
+            sceneName = CatalogueItemFactory.generateChairSceneName(forIndex: index % kNumberOfModels)
         case .flower:
-            imageName = "Flower item" //TODO: add flower images and image name factory
-            sceneName = CatalogueItemFactory.generateFlowerSceneName(forIndex: index)
+            sceneName = CatalogueItemFactory.generateFlowerSceneName(forIndex: index % kNumberOfModels)
         case .dresser:
-            imageName = "Dresser"
             sceneName = "Dresser"
         }
+        // As long as the image asset and model names are in sync this formula will work
+        let imageName = sceneName + " item"
         
         return CatalogueItem(type: type,
                              name: CatalogueItemFactory.generateItemName(forIndex: index),
@@ -107,20 +94,17 @@ struct CatalogueItemFactory {
 fileprivate extension ItemType {
     // For demo purposes only
     init(withIndex index: Int) {
-        let chairsInferiorBound = 2
+        let chairsInferiorBound = 0
         let chairsSuperiorBound = chairsInferiorBound + CatalogueItemFactory.kNumberOfChairModels - 1
         let flowersInferiorBound = chairsSuperiorBound + 1
         let flowersSuperiorBound = flowersInferiorBound + CatalogueItemFactory.kNumberOfFlowerModels - 1
+        
         switch index % CatalogueItemFactory.kNumberOfModels {
-        case 0:
-            self = .box
-        case 1:
-            self = .sphere
         case chairsInferiorBound ... chairsSuperiorBound:
             self = .chair
         case flowersInferiorBound ... flowersSuperiorBound:
             self = .flower
-        case 8:
+        case flowersSuperiorBound + 1:
             self = .dresser
         default:
             fatalError("Case undefined")
